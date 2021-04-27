@@ -5,7 +5,7 @@ let contador=1
 while(clave!=claveIngresada && contador<=3) {
     contador++    
       console.log(claveIngresada=readlineSync.question("Clave incorrecta, Ingrese nuevamente.."))
-    if(clave==claveIngresada){
-        console.log("La clave es correcta, ingresando....")
+    if (clave!=claveIngresada && contador==3){
+      console.log("Su clave es incorrecta y a agotado sus intentos");
     }
 }
