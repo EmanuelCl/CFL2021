@@ -1,0 +1,19 @@
+.container{
+    font-family: 'Libre Franklin', sans-serif;
+    display: grid;
+    grid-template-columns: auto
+}
+.h1{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.h2{
+    font-family: 'Libre Franklin', sans-serif;
+}
+.col-sm-8{
+    margin-bottom: 20px;
+}
+.col-sm{
+    margin-bottom: 20px;
+}

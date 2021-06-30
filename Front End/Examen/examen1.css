@@ -1,0 +1,30 @@
+body{
+    background-color: gray;
+}
+.container{
+    margin-left: 25%;
+    width: 950px;
+}
+.titulo{
+    color: red;
+
+}
+.bold{
+    font-weight: bold;
+}
+h1{
+    font-size: 60px;
+    margin-left: 190px;
+}
+.imagen1{
+    width: 900px;
+
+}
+.imagen2{
+    width: 300px;
+    margin-left: 18%;
+}
+.div{
+    width: 500px;
+    margin-left: 20%;
+}
