@@ -1,0 +1,50 @@
+Curso De Programacion Full Stack
+
+Técnicas de Programación
+
+Objetivo
+
+• Interpretar las especificaciones de diseño o requisitos
+de las asignaciones a programar
+• Comprendiendo en su contexto inmediato cuál es el
+problema a resolver
+• Determinar el alcance del problema y convalidar su
+interpretación a fin de identificar aspectos faltantes.
+• Desarrollar algoritmos que dan soluciones a los
+problemas asignados o derivados de los mismos.
+
+Principales Temas
+
+• Secuencia
+• Condicionales
+• Ciclos
+• Métodos y parámetros
+• Arreglos
+• Matrices
+• Métodos de ordenamiento
+
+El Programador Web
+
+● Diseñador/Maquetador
+○ Antes con el diseño era suficiente. Luego, el diseñador asume competencias
+básicas para convertir los diseños en HTML y CSS.
+
+● Front-End developer
+○ Desarrolladores que asumen las funciones de interacción del lado del cliente
+(JavaScript) y dejando el servidor. En ocasiones, el diseño quedará fuera de sus
+competencias.
+
+● Back-End developer
+○ El desarrollo en el servidor también sufre muchos cambios. Poco a poco, se
+migrará de proyectos web que basan la mayor parte de su programación en HTML,
+CSS y JavaScript, desde el servidor a la creación de APIs (especificación y código
+para que las aplicaciones puedan comunicarse entre ellas).
+
+● Full Stack Developer
+○ Surge una nueva clase de desarrolladores, que no se encasillan en el back o en el
+front. Son capaces de adentrarse en ambos mundos y suplir las necesidades de
+los equipos en estos dos frentes.
+○ Cada Full Stack Developer será diferente, cada uno será especialista en unas
+áreas, y en otras pasará de largo.
+
+El objetivo de este Repositorio es compartir los ejercicios o actividades desarrolladas a lo largo del curso.
