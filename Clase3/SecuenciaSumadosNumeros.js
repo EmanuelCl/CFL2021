@@ -1,7 +1,0 @@
-let readlineSync = require ("readline-sync");
-let primerNumero = readlineSync.questionInt("Ingrese el primero numero: ");
-console.log ("el primer numero es" , primerNumero);
-let segundoNumero = readlineSync.questionInt("Ingrese el segundo numero: ");
-console.log("el segundo numero es" , segundoNumero);
-let resultado = primerNumero + segundoNumero;
-console.log("El resultado de la suma es:", resultado);
