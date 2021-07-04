@@ -1,0 +1,15 @@
+{
+  "name": "arreglo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "arregloNpm.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "ejecutar": "cls && node arregloNpm"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}
