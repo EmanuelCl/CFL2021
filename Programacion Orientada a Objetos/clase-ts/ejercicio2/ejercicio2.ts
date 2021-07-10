@@ -13,18 +13,17 @@ console.log(arreglo);
 opciones(arreglo);
 
 function opciones(arreglo:string[]){
-    let pregunta=readlineSync.question("Elija un numero para realizar la siguiente accion: (1=Insertar) (2=eliminar) (3=buscar) (4=actualizar) : ");
-    if(pregunta===1){
-        insertar(arreglo)
-    }else if(pregunta===2){
-        eliminar(arreglo)
-    }else if(pregunta===3){
-        buscar(arreglo)
-    }else if(pregunta===4){
-        actualizar(arreglo)
+    let pregunta:number=readlineSync.question("Elija un numero para realizar la siguiente accion: (1=Insertar) (2=eliminar) (3=buscar) (4=actualizar) : ");
+        if(pregunta===1){
+            insertar(arreglo)
+        }else if(pregunta===2){
+            eliminar(arreglo)
+        }else if(pregunta===3){
+            buscar(arreglo)
+        }else if(pregunta===4){
+            actualizar(arreglo)
+        }
     }
-}
-
 function actualizar (arreglo:string[]):void {
     let palabra:number=readlineSync.question("Indique la posicion de la palabra que desea actualizar: ");
     console.log(arreglo[palabra])
