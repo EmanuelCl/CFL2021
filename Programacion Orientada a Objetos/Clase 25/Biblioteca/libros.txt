@@ -1,0 +1,5 @@
+Harry Potter;Salamandra;Ficcion;2000;
+El Señor de los Anillos;George Allen & Unwin;Novela;2002
+El Código da Vinci;Wikipedia;Novela;1990;
+Lo Que El Viento se Llevo;Santillan;Novela;1960;
+Don Quijote de la Mancha;Natura;Accion;1995;
