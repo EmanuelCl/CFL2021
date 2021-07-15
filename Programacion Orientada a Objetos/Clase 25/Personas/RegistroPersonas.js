@@ -2,9 +2,11 @@
 exports.__esModule = true;
 var Read = require("readline-sync");
 var Persona_1 = require("./Persona");
+var LectorArchivos_1 = require("./LectorArchivos");
 var RegistroPersonas = /** @class */ (function () {
     function RegistroPersonas() {
         this.personas = [];
+        this.lectorArchivos = new LectorArchivos_1["default"]();
     }
     RegistroPersonas.prototype.agregarPersona = function () {
         var nombre = Read.question("Ingrese el Nombre: ");
@@ -44,6 +46,15 @@ var RegistroPersonas = /** @class */ (function () {
     };
     RegistroPersonas.prototype.mostrarPersonas = function () {
         console.log(this.personas);
+    };
+    RegistroPersonas.prototype.cargarPersonas = function () {
+        var _this = this;
+        var personas = this.lectorArchivos.cargaDatos("personas.txt", '\ n');
+        var propiedadesPersona = [];
+        personas.forEach(function (personaString) {
+            propiedadesPersona = personaString.split(";");
+            _this.personas.push(new Persona_1["default"](propiedadesPersona[0], propiedadesPersona[1], propiedadesPersona[2], parseInt(propiedadesPersona[3]), parseInt(propiedadesPersona[4])));
+        });
     };
     return RegistroPersonas;
 }());

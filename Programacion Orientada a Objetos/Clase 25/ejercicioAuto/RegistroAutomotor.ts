@@ -1,12 +1,16 @@
 import * as RLS from 'readline-sync';
 import * as FS from 'fs';
 import Auto from "./Auto";
+import Lector from './LectorArchivos';
 
 export default class RegistroAutomotor {
     private autos: Auto[];
+    private lectorArchivos:Lector;
 
     public constructor (){
         this.autos = [];
+        this.lectorArchivos=new Lector();
+
     }
 
     public addAuto():void{
@@ -52,7 +56,7 @@ export default class RegistroAutomotor {
     }
 
     cargarAutos():void{
-        let autos:string[] = (FS.readFileSync('autos.txt','utf8')).split('\n');
+        let autos:string[] = this.lectorArchivos.cargaDatos('autos.txt','\n');
         let propiedadesAuto:string[] = [];
         autos.forEach(autoString => {
             propiedadesAuto = autoString.split(";")

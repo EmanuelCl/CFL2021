@@ -1,11 +1,12 @@
 "use strict";
 exports.__esModule = true;
 var RLS = require("readline-sync");
-var FS = require("fs");
 var Auto_1 = require("./Auto");
+var LectorArchivos_1 = require("./LectorArchivos");
 var RegistroAutomotor = /** @class */ (function () {
     function RegistroAutomotor() {
         this.autos = [];
+        this.lectorArchivos = new LectorArchivos_1["default"]();
     }
     RegistroAutomotor.prototype.addAuto = function () {
         var patente = RLS.question('Ingrese la pantente: ');
@@ -46,7 +47,7 @@ var RegistroAutomotor = /** @class */ (function () {
     };
     RegistroAutomotor.prototype.cargarAutos = function () {
         var _this = this;
-        var autos = (FS.readFileSync('autos.txt', 'utf8')).split('\n');
+        var autos = this.lectorArchivos.cargaDatos('autos.txt', '\n');
         var propiedadesAuto = [];
         autos.forEach(function (autoString) {
             propiedadesAuto = autoString.split(";");

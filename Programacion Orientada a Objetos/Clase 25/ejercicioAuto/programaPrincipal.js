@@ -1,10 +1,9 @@
 "use strict";
 exports.__esModule = true;
 var RLS = require("readline-sync");
-var LectorArchivos_1 = require("./LectorArchivos");
 var RegistroAutomotor_1 = require("./RegistroAutomotor");
 var registro = new RegistroAutomotor_1["default"]();
-var lector = new LectorArchivos_1.Lector();
+registro.cargarAutos();
 registro.mostrarAutos();
 //menu de opciones CRUD
 var opcion = RLS.question('Ingrese una opcion, X para finalizar: ').toUpperCase();
@@ -34,4 +33,3 @@ while (opcion != 'X') {
     registro.mostrarAutos();
     opcion = RLS.question('Ingrese una opcion, X para finalizar: ').toUpperCase();
 }
-lector.leerPalabrasArchivo();
