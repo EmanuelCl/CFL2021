@@ -1,15 +1,13 @@
 import * as Read from "readline-sync"
 import RegistroPersonas from "./RegistroPersonas";
-import LectorArchivos from "./LectorArchivos"
 
 let registro:RegistroPersonas=new RegistroPersonas();
-let lector:LectorArchivos=new LectorArchivos();
 
 let opcion: string = Read.question('Ingrese una opcion:(C:CREAR)(R:BUSCAR)(U:BUSCAR Y REEMPLAZAR)(D:ELIMINAR), X para finalizar: ');
 let dni:number;
 
-lector.cargarPersonas();
-lector.mostrarPersonas();
+registro.cargarPersonas();
+registro.mostrarPersonas();
 
 while (opcion != 'X') {
     switch (opcion) {
@@ -33,7 +31,7 @@ while (opcion != 'X') {
             break;                        
         }
     }
-    lector.mostrarPersonas();
+    registro.mostrarPersonas();
     opcion = Read.question('Ingrese una opcion:(C:CREAR)(R:BUSCAR)(U:BUSCAR Y REEMPLAZAR)(D:ELIMINAR), X para finalizar: ').toUpperCase();
 }
 

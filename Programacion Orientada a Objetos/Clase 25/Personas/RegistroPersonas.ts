@@ -1,11 +1,15 @@
 import * as Read from "readline-sync";
 import Persona from "./Persona";
+import * as FS from "fs"
+import Lector from "./LectorArchivos";
 
 export default class RegistroPersonas{
     private personas: Persona[];
+    private lectorArchivos: Lector;
 
-    public constructor (){
+    public constructor (lectorArchivos:Lector){
         this.personas=[]
+        this.lectorArchivos=lectorArchivos
     }
 
     public agregarPersona():void{
@@ -44,4 +48,16 @@ export default class RegistroPersonas{
             this.personas.splice(posicion,1)
         }
     }
+    public cargarPersonas():void{
+        let personas:string[] = (FS.readFileSync(this.lectorArchivos.cargaDatos('personas.txt','\n')));
+        let propiedadesPersona:string[] = [];
+        personas.forEach(personaString => {
+            propiedadesPersona = personaString.split(";")
+            this.personas.push(new Persona(propiedadesPersona[0],propiedadesPersona[1],propiedadesPersona[2],parseInt(propiedadesPersona[3]),parseInt(propiedadesPersona[4])))
+        });
+    }
+    public mostrarPersonas(){
+        console.log(this.personas)
+    }
+
 }
