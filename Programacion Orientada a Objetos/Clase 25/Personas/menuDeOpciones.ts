@@ -2,7 +2,7 @@ import * as Read from "readline-sync"
 import RegistroPersonas from "./RegistroPersonas";
 
 let registro:RegistroPersonas=new RegistroPersonas();
-registro.cargarPersonas();
+registro.cargarPersonas("personas.txt","\n");
 registro.mostrarPersonas();
 
 let opcion: string = Read.question('Ingrese una opcion:(C:CREAR)(R:BUSCAR)(U:BUSCAR Y REEMPLAZAR)(D:ELIMINAR), X para finalizar: ').toUpperCase();

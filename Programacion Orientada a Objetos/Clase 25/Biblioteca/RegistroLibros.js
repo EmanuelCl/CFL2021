@@ -8,11 +8,7 @@ var RegistroLibros = /** @class */ (function () {
         this.libros = [];
     }
     RegistroLibros.prototype.addLibro = function () {
-        var nombre = RLS.question('Ingrese el nombre: ');
-        var editorial = RLS.question('Ingrese la editorial: ');
-        var genero = RLS.question('Ingrese el genero: ');
-        var año = RLS.questionInt('Ingrese el año: ');
-        this.libros.push(new Libro_1["default"](nombre, editorial, genero, año));
+        this.libros.push(this.pedirDatos());
     };
     RegistroLibros.prototype.findLibro = function (nombre) {
         for (var i = 0; i < this.libros.length; i++) {
@@ -29,13 +25,9 @@ var RegistroLibros = /** @class */ (function () {
         }
     };
     RegistroLibros.prototype.updateLibro = function (libroViejo) {
-        var nombre = RLS.question('Ingrese el nombre del libro actualizado: ');
-        var editorial = RLS.question('Ingrese la editorial del libro actualizado : ');
-        var genero = RLS.question('Ingrese el genero del libro actualizado: ');
-        var año = RLS.questionInt('Ingrese el año del libro actualizado: ');
         var posicion = this.findLibro(libroViejo);
         if (posicion != -1) {
-            this.libros[posicion] = new Libro_1["default"](nombre, editorial, genero, año);
+            this.libros[posicion] = this.pedirDatos();
         }
         else {
             console.log("el libro no existe");
@@ -44,14 +36,22 @@ var RegistroLibros = /** @class */ (function () {
     RegistroLibros.prototype.mostrarLibros = function () {
         console.log(this.libros);
     };
-    RegistroLibros.prototype.cargarLibros = function () {
+    RegistroLibros.prototype.cargarLibros = function (rutaArchivo, separador) {
         var _this = this;
-        var libros = (FS.readFileSync('libros.txt', 'utf8')).split('\n');
+        var libros = (FS.readFileSync(rutaArchivo, 'utf8')).split(separador);
         var propiedadesLibro = [];
         libros.forEach(function (libroString) {
             propiedadesLibro = libroString.split(";");
             _this.libros.push(new Libro_1["default"](propiedadesLibro[0], propiedadesLibro[1], propiedadesLibro[2], parseInt(propiedadesLibro[3])));
         });
+    };
+    RegistroLibros.prototype.pedirDatos = function () {
+        var nombre = RLS.question('Ingrese el nombre: ');
+        var editorial = RLS.question('Ingrese la editorial: ');
+        var genero = RLS.question('Ingrese el genero: ');
+        var año = RLS.questionInt('Ingrese el año: ');
+        var libro = new Libro_1["default"](nombre, editorial, genero, año);
+        return libro;
     };
     return RegistroLibros;
 }());
