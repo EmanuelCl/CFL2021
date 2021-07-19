@@ -50,8 +50,8 @@ export default class RegistroPersonas{
     public mostrarPersonas(){
         console.log(this.personas)
     }
-    public cargarPersonas():void{
-        let personas:string[] = this.lectorArchivos.cargaDatos("personas.txt",'\ n');
+    public cargarPersonas(rutaArchivo:string,separador:string):void{
+        let personas:string[] = this.lectorArchivos.cargaDatos(rutaArchivo,separador);
         let propiedadesPersona:string[] = [];
         personas.forEach(personaString => {
             propiedadesPersona = personaString.split(";")

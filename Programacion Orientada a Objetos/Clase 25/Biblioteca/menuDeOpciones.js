@@ -3,7 +3,7 @@ exports.__esModule = true;
 var RLS = require("readline-sync");
 var RegistroLibros_1 = require("./RegistroLibros");
 var registro = new RegistroLibros_1["default"]();
-registro.cargarLibros();
+registro.cargarLibros("libros.txt", "\n");
 registro.mostrarLibros();
 var opcion = RLS.question('Ingrese una opcion:(C:CREAR)(R:BUSCAR)(U:BUSCAR Y REEMPLAZAR)(D:ELIMINAR), X para finalizar: ').toUpperCase();
 var nombre;
@@ -19,7 +19,7 @@ while (opcion != 'X') {
             break;
         }
         case 'U': {
-            nombre = RLS.question('Ingrese la palabra a buscar y reemplazar: ');
+            nombre = RLS.question('Ingrese el nombre del libro a buscar y reemplazar: ');
             registro.updateLibro(nombre);
             break;
         }

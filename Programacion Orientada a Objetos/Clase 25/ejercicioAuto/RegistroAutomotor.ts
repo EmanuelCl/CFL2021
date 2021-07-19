@@ -51,12 +51,12 @@ export default class RegistroAutomotor {
         }
     }
 
-    mostrarAutos(): void{
+    public mostrarAutos(): void{
         console.log(this.autos);
     }
 
-    cargarAutos():void{
-        let autos:string[] = this.lectorArchivos.cargaDatos('autos.txt','\n');
+    public cargarAutos(rutaArchivo:string,separador:string):void{
+        let autos:string[] = this.lectorArchivos.cargaDatos(rutaArchivo,separador);
         let propiedadesAuto:string[] = [];
         autos.forEach(autoString => {
             propiedadesAuto = autoString.split(";")

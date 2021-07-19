@@ -9,11 +9,7 @@ export default class RegistroLibros {
     }
 
     public addLibro():void{
-        let nombre:string = RLS.question('Ingrese el nombre: ');
-        let editorial:string = RLS.question('Ingrese la editorial: ');
-        let genero:string = RLS.question('Ingrese el genero: ');
-        let año: number = RLS.questionInt('Ingrese el año: ');
-        this.libros.push(new Libro(nombre,editorial,genero,año));
+        this.libros.push(this.pedirDatos());
     }
 
     public findLibro(nombre:string): number{
@@ -33,29 +29,33 @@ export default class RegistroLibros {
     }
 
     public updateLibro(libroViejo: string): void{
-        let nombre:string = RLS.question('Ingrese el nombre del libro actualizado: ');
-        let editorial:string = RLS.question('Ingrese la editorial del libro actualizado : ');
-        let genero:string = RLS.question('Ingrese el genero del libro actualizado: ');
-        let año: number = RLS.questionInt('Ingrese el año del libro actualizado: ');
-
+        
         let posicion= this.findLibro(libroViejo);
         if (posicion != -1) {
-            this.libros[posicion] = new Libro(nombre,editorial,genero,año);
+            this.libros[posicion] = this.pedirDatos();
         }else{
             console.log("el libro no existe");
         }
     }
 
-    mostrarLibros(): void{
+    public mostrarLibros(): void{
         console.log(this.libros);
     }
 
-    cargarLibros():void{
-        let libros:string[] = (FS.readFileSync('libros.txt','utf8')).split('\n');
+    public cargarLibros(rutaArchivo:string,separador:string):void{
+        let libros:string[] = (FS.readFileSync(rutaArchivo,'utf8')).split(separador);
         let propiedadesLibro:string[] = [];
         libros.forEach(libroString => {
             propiedadesLibro = libroString.split(";")
             this.libros.push(new Libro(propiedadesLibro[0],propiedadesLibro[1],propiedadesLibro[2],parseInt(propiedadesLibro[3])))
         });
     }
+    private pedirDatos():Libro{
+        let nombre:string = RLS.question('Ingrese el nombre: ');
+        let editorial:string = RLS.question('Ingrese la editorial: ');
+        let genero:string = RLS.question('Ingrese el genero: ');
+        let año: number = RLS.questionInt('Ingrese el año: ');
+        let libro:Libro = new Libro(nombre,editorial,genero,año)
+        return libro
+    } 
 } 
