@@ -14,15 +14,12 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var Vehiculo_1 = __importDefault(require("./Vehiculo"));
+exports.__esModule = true;
+var Vehiculo_1 = require("./Vehiculo");
 var Auto = /** @class */ (function (_super) {
     __extends(Auto, _super);
-    function Auto(patente, marca, modelo, año, combustible) {
-        var _this = _super.call(this, patente, marca, modelo, año) || this;
+    function Auto(tipo, patente, marca, modelo, año, combustible) {
+        var _this = _super.call(this, tipo, patente, marca, modelo, año) || this;
         _this.combustible = combustible;
         return _this;
     }
@@ -30,5 +27,5 @@ var Auto = /** @class */ (function (_super) {
         return this.combustible;
     };
     return Auto;
-}(Vehiculo_1.default));
-exports.default = Auto;
+}(Vehiculo_1["default"]));
+exports["default"] = Auto;

@@ -1,10 +1,12 @@
 export default class Vehiculo{
+    private tipo:string;
     private patente:string;
     private marca:string;
     private modelo:string;
     private año:number;
 
-    public constructor(patente:string, marca: string, modelo:string, año:number){
+    public constructor(tipo:string,patente:string, marca: string, modelo:string, año:number){
+        this.tipo = tipo;
         this.patente = patente;
         this.marca = marca;
         this.modelo = modelo;

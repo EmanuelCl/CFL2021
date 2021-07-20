@@ -6,7 +6,7 @@ registro.cargarVehiculo('vehiculos.txt','\n');
 registro.mostrarVehiculo();
 
 //menu de opciones CRUD
-let opcion: string = RLS.question('Ingrese una opcion, X para finalizar: ').toUpperCase();
+let opcion: string = RLS.question('Ingrese una opcion,(C=CREAR),(R=BUSCAR),(U=MODIFICAR),(D=ELIMINAR), X para finalizar: ').toUpperCase();
 let patente: string;
 while (opcion != 'X') {
     switch (opcion) {
@@ -20,7 +20,7 @@ while (opcion != 'X') {
             break;            
         }
         case 'U': {
-            patente = RLS.question('Ingrese la palabra a buscar y reemplazar: ');
+            patente = RLS.question('Ingrese la patente del vehiculo a modificar: ');
             registro.updateVehiculo(patente);
             break;
         }

@@ -1,15 +1,44 @@
 import * as RLS from 'readline-sync';
 import * as FS from 'fs';
 import Vehiculo from "./Vehiculo";
+import Auto from './Auto';
+import Moto from './Moto';
+import Camion from './Camion';
 export default class RegistroVehiculos {
     private vehiculos: Vehiculo[];
-
+  
     public constructor (){
         this.vehiculos = [];
+    
     }
 
     public addVehiculo():void{
-        this.vehiculos.push(this.pedirDatos());
+        let tipo:string = RLS.question("Ingrese el tipo de vehiculo: ");
+        let patente:string = RLS.question('Ingrese la Patente: ');
+        let marca:string = RLS.question('Ingrese la marca: ');
+        let modelo:string = RLS.question('Ingrese el modelo: ');
+        let año: number = RLS.questionInt('Ingrese el año: ');
+        
+        switch(tipo){
+            case "auto":{
+                let combustible:string = RLS.question("Ingrese el tipo de Combustible: ")
+                this.vehiculos.push(new Auto(tipo,patente,marca,modelo,año,combustible));
+                break;
+            }
+            case "moto":{
+                let cilindrada:number = RLS.questionInt("Ingrese la Cilindrada: ");
+                this.vehiculos.push(new Moto(tipo,patente,marca,modelo,año,cilindrada));
+                break;
+            }
+            case "camion":{
+                let cargaKg:number = RLS.questionInt("Ingrese la capacidad de Carga: ");
+                this.vehiculos.push(new Camion(tipo,patente,marca,modelo,año,cargaKg));
+                break;
+            }
+            default:{
+                console.log("El tipo de vehiculo ingresado no es admitido en este registro.");
+            }
+        } 
     }
 
     public findVehiculo(patente:string): number{
@@ -29,15 +58,19 @@ export default class RegistroVehiculos {
     }
 
     public updateVehiculo(vehiculoViejo: string): void{
-        
+        let tipo:string = RLS.question("Ingrese el tipo de vehiculo: ").toUpperCase();
+        let patente:string = RLS.question('Ingrese la Patente: ');
+        let marca:string = RLS.question('Ingrese la marca: ');
+        let modelo:string = RLS.question('Ingrese el modelo: ');
+        let año: number = RLS.questionInt('Ingrese el año: ');
+
         let posicion= this.findVehiculo(vehiculoViejo);
         if (posicion != -1) {
-            this.vehiculos[posicion] = this.pedirDatos();
+            this.vehiculos[posicion] = new Vehiculo(tipo,patente,marca,modelo,año)
         }else{
             console.log("el vehiculo no existe");
         }
     }
-
     public mostrarVehiculo(): void{
         console.log(this.vehiculos);
     }
@@ -47,15 +80,21 @@ export default class RegistroVehiculos {
         let propiedadVehiculo:string[] = [];
         vehiculos.forEach(vehiculoString => {
             propiedadVehiculo = vehiculoString.split(";")
-            this.vehiculos.push(new Vehiculo(propiedadVehiculo[0],propiedadVehiculo[1],propiedadVehiculo[2],parseInt(propiedadVehiculo[3])))
+            switch(propiedadVehiculo[0]){
+                case "auto":{
+                    this.vehiculos.push(new Auto(propiedadVehiculo[0],propiedadVehiculo[1],propiedadVehiculo[2],propiedadVehiculo[3],parseInt(propiedadVehiculo[4]),propiedadVehiculo[5]));
+                    break;
+                }
+                case "moto":{
+                    this.vehiculos.push(new Moto(propiedadVehiculo[0],propiedadVehiculo[1],propiedadVehiculo[2],propiedadVehiculo[3],parseInt(propiedadVehiculo[4]),parseInt(propiedadVehiculo[5])));
+                    break;
+                }
+                case "camion":{
+                    this.vehiculos.push(new Camion(propiedadVehiculo[0],propiedadVehiculo[1],propiedadVehiculo[2],propiedadVehiculo[3],parseInt(propiedadVehiculo[4]),parseInt(propiedadVehiculo[5])));
+                    break;
+                }
+            }
         });
     }
-    private pedirDatos():Vehiculo{
-        let patente:string = RLS.question('Ingrese la Patente: ');
-        let marca:string = RLS.question('Ingrese la marca: ');
-        let modelo:string = RLS.question('Ingrese el modelo: ');
-        let año: number = RLS.questionInt('Ingrese el año: ');
-        let vehiculo:Vehiculo = new Vehiculo(patente,marca,modelo,año)
-        return vehiculo
-    } 
+
 } 

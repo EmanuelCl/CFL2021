@@ -6,7 +6,7 @@ var registro = new RegistroVehiculos_1["default"]();
 registro.cargarVehiculo('vehiculos.txt', '\n');
 registro.mostrarVehiculo();
 //menu de opciones CRUD
-var opcion = RLS.question('Ingrese una opcion, X para finalizar: ').toUpperCase();
+var opcion = RLS.question('Ingrese una opcion,(C=CREAR),(R=BUSCAR),(U=MODIFICAR),(D=ELIMINAR), X para finalizar: ').toUpperCase();
 var patente;
 while (opcion != 'X') {
     switch (opcion) {
@@ -20,7 +20,7 @@ while (opcion != 'X') {
             break;
         }
         case 'U': {
-            patente = RLS.question('Ingrese la palabra a buscar y reemplazar: ');
+            patente = RLS.question('Ingrese la patente del vehiculo a modificar: ');
             registro.updateVehiculo(patente);
             break;
         }

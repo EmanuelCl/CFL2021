@@ -1,7 +1,8 @@
 "use strict";
 exports.__esModule = true;
 var Vehiculo = /** @class */ (function () {
-    function Vehiculo(patente, marca, modelo, año) {
+    function Vehiculo(tipo, patente, marca, modelo, año) {
+        this.tipo = tipo;
         this.patente = patente;
         this.marca = marca;
         this.modelo = modelo;

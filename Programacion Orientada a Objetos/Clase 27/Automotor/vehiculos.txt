@@ -1,3 +1,3 @@
-ABC123;Ford;Fiesta;2012
-LMC940;Mercedez;1620;1997
-CLC;Honda;Biz;2008
+auto;ABC123;Ford;Fiesta;2012;nafta
+camion;LMC940;Mercedez;1620;1997;10000
+moto;CLC;Honda;Biz;2008;125
