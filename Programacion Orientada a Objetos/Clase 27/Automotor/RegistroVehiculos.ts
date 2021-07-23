@@ -71,6 +71,7 @@ export default class RegistroVehiculos {
             console.log("el vehiculo no existe");
         }
     }
+
     public mostrarVehiculo(): void{
         console.log(this.vehiculos);
     }
