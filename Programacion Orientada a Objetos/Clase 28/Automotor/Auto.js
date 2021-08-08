@@ -29,9 +29,6 @@ var Auto = /** @class */ (function (_super) {
     Auto.prototype.getCombustible = function () {
         return this.combustible;
     };
-    Auto.prototype.aleatorio = function (min, max) {
-        return Math.floor(Math.random() * (max - min)) + min;
-    };
     Auto.prototype.calcularSeguro = function () {
         var valorTotal = this.aleatorio(300000, 2800000);
         var cuotaMensual = (valorTotal / 100) / 6;

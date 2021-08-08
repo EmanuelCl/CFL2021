@@ -33,7 +33,7 @@ export default class Vehiculo{
     public setPatente(patente:string):void{
         this.patente = patente;
     }
-    public aleatorio(min:number,max:number){
+    protected aleatorio(min:number,max:number){
         return Math.floor(Math.random() * (max - min) ) + min;
     }
     public calcularSeguro():void{

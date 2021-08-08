@@ -29,9 +29,6 @@ var Moto = /** @class */ (function (_super) {
     Moto.prototype.getCilindrada = function () {
         return this.cilindrada;
     };
-    Moto.prototype.aleatorio = function (min, max) {
-        return Math.floor(Math.random() * (max - min)) + min;
-    };
     Moto.prototype.calcularSeguro = function () {
         var valorTotal = this.aleatorio(90000, 650000);
         var cuotaMensual = (valorTotal / 100) / 6;

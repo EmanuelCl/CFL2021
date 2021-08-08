@@ -11,9 +11,6 @@ export default class Auto extends Vehiculo{
     public getCombustible():string{
         return this.combustible;
     }
-    public aleatorio(min:number,max:number){
-        return Math.floor(Math.random() * (max - min) ) + min;
-    }
     public calcularSeguro():void{
         let valorTotal:number=this.aleatorio(300000,2800000);
         let cuotaMensual:number=(valorTotal/100)/6

@@ -11,9 +11,6 @@ export default class Moto extends Vehiculo{
     public getCilindrada():number{
         return this.cilindrada;
     }
-    public aleatorio(min:number,max:number){
-        return Math.floor(Math.random() * (max - min) ) + min;
-    }
     public calcularSeguro():void{
         let valorTotal:number=this.aleatorio(90000,650000);
         let cuotaMensual:number=(valorTotal/100)/6

@@ -12,9 +12,6 @@ export default class Camion extends Vehiculo{
     public getCarga():number{
         return this.cargaKg
     }
-    public aleatorio(min:number,max:number){
-        return Math.floor(Math.random() * (max - min) ) + min;
-    }
     public calcularSeguro():void{
         let valorTotal:number=this.aleatorio(3500000,8000000);
         let cuotaMensual:number=(valorTotal/100)/6

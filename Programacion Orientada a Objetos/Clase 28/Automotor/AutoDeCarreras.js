@@ -29,9 +29,6 @@ var AutoDeCarreras = /** @class */ (function (_super) {
     AutoDeCarreras.prototype.velocidadMax = function () {
         return this.velocidadMaxima;
     };
-    AutoDeCarreras.prototype.aleatorio = function (min, max) {
-        return Math.floor(Math.random() * (max - min)) + min;
-    };
     AutoDeCarreras.prototype.calcularSeguro = function () {
         var valorTotal = this.aleatorio(20000000, 90000000);
         var cuotaMensual = (valorTotal / 100) / 6;

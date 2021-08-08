@@ -29,9 +29,6 @@ var Camion = /** @class */ (function (_super) {
     Camion.prototype.getCarga = function () {
         return this.cargaKg;
     };
-    Camion.prototype.aleatorio = function (min, max) {
-        return Math.floor(Math.random() * (max - min)) + min;
-    };
     Camion.prototype.calcularSeguro = function () {
         var valorTotal = this.aleatorio(3500000, 8000000);
         var cuotaMensual = (valorTotal / 100) / 6;

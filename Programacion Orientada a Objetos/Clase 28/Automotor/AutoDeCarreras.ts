@@ -10,9 +10,6 @@ export default class AutoDeCarreras extends Vehiculo{
     public velocidadMax():number{
         return this.velocidadMaxima;
     }
-    public aleatorio(min:number,max:number){
-        return Math.floor(Math.random() * (max - min) ) + min;
-    }
     public calcularSeguro():void{
         let valorTotal:number=this.aleatorio(20000000,90000000);
         let cuotaMensual:number=(valorTotal/100)/6

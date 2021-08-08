@@ -1,7 +1,4 @@
 import * as RLS from 'readline-sync';
-import Auto from './Auto';
-import Camion from './Camion';
-import Moto from './Moto';
 import RegistroVehiculos from './RegistroVehiculos';
 
 let registro: RegistroVehiculos = new RegistroVehiculos();
