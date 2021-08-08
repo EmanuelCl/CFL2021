@@ -1,4 +1,0 @@
-auto;ABC123;Ford;Fiesta;2012;nafta
-camion;LMC940;Mercedez;1620;1997;10000
-moto;CLC;Honda;Biz;2008;125
-auto de carreras:DDZ723;Ferrari;F8;2015;600
