@@ -113,3 +113,13 @@ ESTADISTICAS JUGADA:
  Total Cartas Jugada: 20 
  Total Cartas Crupier: 18 
  Monto Apostado: 2000 
+ESTADISTICAS JUGADA: 
+ Premio Ganado: 0 
+ Total Cartas Jugada: 22 
+ Total Cartas Crupier: 21 
+ Monto Apostado: 2000 
+ESTADISTICAS JUGADA: 
+ Premio Ganado: 0 
+ Total Cartas Jugada: 26 
+ Total Cartas Crupier: 20 
+ Monto Apostado: 2000 

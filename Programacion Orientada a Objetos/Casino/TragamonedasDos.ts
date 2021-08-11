@@ -1,4 +1,5 @@
 import * as read from "readline-sync";
+import CustomError from "./CustomError";
 import LectorEscritor from "./LectorEscritor";
 import Tragamonedas from "./Tragamonedas";
 
@@ -18,7 +19,10 @@ export default class TragamonedasDos extends Tragamonedas{
         let numeroDos:number=this.aleatorio(0,100);
         let numeroTres:number=this.aleatorio(0,100);
         let premio:number=0;
-
+        
+        if(numero>100 || numero<0){
+            throw new CustomError("El numero ingresado debe estar entre 0 y 100")
+        }
         switch(numero){
             case numeroUno:
             case numeroDos:

@@ -38,6 +38,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var read = __importStar(require("readline-sync"));
+var CustomError_1 = __importDefault(require("./CustomError"));
 var LectorEscritor_1 = __importDefault(require("./LectorEscritor"));
 var Tragamonedas_1 = __importDefault(require("./Tragamonedas"));
 var TragamonedasDos = /** @class */ (function (_super) {
@@ -57,6 +58,9 @@ var TragamonedasDos = /** @class */ (function (_super) {
         var numeroDos = this.aleatorio(0, 100);
         var numeroTres = this.aleatorio(0, 100);
         var premio = 0;
+        if (numero > 100 || numero < 0) {
+            throw new CustomError_1.default("El numero ingresado debe estar entre 0 y 100");
+        }
         switch (numero) {
             case numeroUno:
             case numeroDos:

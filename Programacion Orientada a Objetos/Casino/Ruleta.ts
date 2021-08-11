@@ -1,4 +1,5 @@
 import * as read from "readline-sync";
+import CustomError from "./CustomError";
 import LectorEscritor from "./LectorEscritor";
 export default class Ruleta{
     private lectorEscritor: LectorEscritor;
@@ -15,12 +16,17 @@ export default class Ruleta{
         let parImpar:string=read.question("Desea apostar a: (PAR) , (IMPAR) , (X) Para continuar: ").toUpperCase();
         let premio:number=0;
         let numero:number=this.aleatorio(0,36);
-        
+
+        if(apuesta<0){
+            throw new CustomError("El monto de la Apuesta no puede ser menor a $0");
+        }
         switch(opciones){
             case "PLENO":{
                 let numIngresado:number=read.questionInt("Ingrese un numero: ");
                 premio=apuesta*35
-                
+                if(numIngresado<0 || numIngresado>36){
+                    throw new CustomError("El numero Ingresado no puede ser menor a 0 o mayor a 36");
+                }
                 if((numIngresado==numero) || (numIngresado==0)){
                     console.log("Felicitaciones! has ganado: ","$",premio);
                     console.log("Numero Ganador: ",numero);
@@ -34,6 +40,9 @@ export default class Ruleta{
                 let numIngresado:number=read.questionInt("Ingrese el Primer Numero: ");
                 let numIngresadoDos:number=read.questionInt("Ingrese el Segundo Numero: ");
                 premio=apuesta*17
+                if((numIngresado<0 || numIngresadoDos<0) || (numIngresado>36 || numIngresadoDos>36)){
+                    throw new CustomError("Los numeros Ingresados no pueden ser menores a 0 o mayores a 36");
+                }
                 if(numIngresado==numero || numIngresadoDos==numero){
                     console.log("Felicitaciones! has ganado: ","$",premio);
                     console.log("Numero Ganador: ",numero);
@@ -48,6 +57,9 @@ export default class Ruleta{
                 let numIngresadoDos:number=read.questionInt("Ingrese el segundo numero: ");
                 let numIngresadoTres:number=read.questionInt("Ingrese el tercer numero: ");
                 premio=apuesta*11
+                if((numIngresado<0 || numIngresadoDos<0 || numIngresadoTres <0) || (numIngresado>36 || numIngresadoDos>36 || numIngresadoTres>36)){
+                    throw new CustomError("Los numeros Ingresados no pueden ser menores a 0 o mayores a 36");
+                }
                 if(numIngresado==numero || numIngresadoDos==numero || numIngresadoTres==numero){
                     console.log("Felicitaciones! has ganado: ","$",premio);
                     console.log("Numero Ganador: ",numero);
@@ -63,6 +75,9 @@ export default class Ruleta{
                 let numIngresadoTres:number=read.questionInt("Ingrese el tercer numero: ");
                 let numIngresadoCuatro:number=read.questionInt("Ingrese el cuarto numero: ");
                 premio=apuesta*8
+                if((numIngresado<0 || numIngresadoDos<0 || numIngresadoTres <0 || numIngresadoCuatro<0) || (numIngresado>36 || numIngresadoDos>36 || numIngresadoTres>36 || numIngresadoCuatro>36)){
+                    throw new CustomError("Los numeros Ingresados no pueden ser menores a 0 o mayores a 36");
+                }
                 if(numIngresado==numero || numIngresadoDos==numero || numIngresadoTres==numero || numIngresadoCuatro==numero){
                     console.log("Felicitaciones! has ganado: ","$",premio);
                     console.log("Numero Ganador: ",numero);
@@ -80,6 +95,9 @@ export default class Ruleta{
                 let numIngresadoCinco:number=read.questionInt("Ingrese el quinto numero: ");
                 let numIngresadoSeis:number=read.questionInt("Ingrese el sexto numero: ");
                 premio=apuesta*5
+                if((numIngresado<0 || numIngresadoDos<0 || numIngresadoTres <0 || numIngresadoCuatro<0 || numIngresadoCinco<0 || numIngresadoSeis<0) || (numIngresado>36 || numIngresadoDos>36 || numIngresadoTres>36 || numIngresadoCuatro>36 || numIngresadoCinco>36 || numIngresadoSeis>36)){
+                    throw new CustomError("Los numeros Ingresados no pueden ser menores a 0 o mayores a 36");
+                }
                 if(numIngresado==numero || numIngresadoDos==numero || numIngresadoTres==numero || numIngresadoCuatro==numero || numIngresadoCinco==numero || numIngresadoSeis==numero){
                     console.log("Felicitaciones! has ganado: ","$",premio);
                     console.log("Numero Ganador: ",numero);
@@ -95,45 +113,48 @@ export default class Ruleta{
                 let columnaDos:number[]=[2,5,8,11,14,17,20,23,26,29,32,35];
                 let columnaTres:number[]=[3,6,9,12,15,18,21,24,27,30,33,36];
                 premio=apuesta*2;
-                    switch(columna){
-                        case 1:{
-                            for(let i=0;i<columnaUno.length;i++){
-                                if(columnaUno[i]==numero){
+                if(columna<1 || columna>3){
+                    throw new CustomError("El numero Ingresado no puede ser mayor a 3 o menor a 0 ");
+                }
+                switch(columna){
+                    case 1:{
+                        for(let i=0;i<columnaUno.length;i++){
+                            if(columnaUno[i]==numero){
                                 console.log("Felicitaciones! has ganado: ","$",premio);
                                 console.log("Numero Ganador: ",numero);
-                                }
                             }
-                            console.log("Lo sentimos, Has perdido");
-                            console.log("Numero Ganador: ",numero);
-                            break;  
                         }
-                        case 2:{
-                            for(let i=0;i<columnaDos.length;i++){
-                                if(columnaDos[i]==numero){
+                        console.log("Lo sentimos, Has perdido");
+                        console.log("Numero Ganador: ",numero);
+                        break;  
+                    }
+                    case 2:{
+                        for(let i=0;i<columnaDos.length;i++){
+                            if(columnaDos[i]==numero){
                                 console.log("Felicitaciones! has ganado: ","$",premio);
                                 console.log("Numero Ganador: ",numero);
-                                }
                             }
-                            console.log("Lo sentimos, Has perdido");
-                            console.log("Numero Ganador: ",numero);
-                            break;  
                         }
-                        case 3:{
-                            for(let i=0;i<columnaTres.length;i++){
-                                if(columnaTres[i]==numero){
+                        console.log("Lo sentimos, Has perdido");
+                        console.log("Numero Ganador: ",numero);
+                        break;  
+                    }
+                    case 3:{
+                        for(let i=0;i<columnaTres.length;i++){
+                            if(columnaTres[i]==numero){
                                 console.log("Felicitaciones! has ganado: ","$",premio);
                                 console.log("Numero Ganador: ",numero);
-                                }
                             }
-                            console.log("Lo sentimos, Has perdido");
-                            console.log("Numero Ganador: ",numero);
-                            break;  
                         }
-                        default:{
+                        console.log("Lo sentimos, Has perdido");
+                        console.log("Numero Ganador: ",numero);
+                        break;  
+                    }
+                    default:{
                             console.log("La opcion ingresada no es correcta.");
                             columna=read.questionInt("Cual columna desea apostar: 1, 2 o 3? ");
-                        }     
-                    }   
+                    }     
+                }   
                 break;
             }
             case "DOCENA":{
@@ -142,7 +163,9 @@ export default class Ruleta{
                 let segunDocena:number=this.aleatorio(13,24);
                 let tercerDocena:number=this.aleatorio(25,36);
                 premio=apuesta*2;
-
+                if(docena<1 || docena>3){
+                    throw new CustomError("El numero Ingresado no puede ser mayor a 3 o menor a 0 ");
+                }
                 switch(docena){
                     case 1:{
                         if(numero==primerDocena){
@@ -180,6 +203,9 @@ export default class Ruleta{
                     }
                 }
             }
+        }
+        if(parImpar!="PAR" && parImpar!="IMPAR"){
+            throw new CustomError("El texto Ingresado no es PAR o IMPAR");
         }
         if(parImpar=="PAR"){
             premio=apuesta;

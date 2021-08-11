@@ -1,5 +1,6 @@
 import LectorEscritor from "./LectorEscritor";
 import * as read from "readline-sync";
+import CustomError from "./CustomError";
 
 export default class BlackJack{
     private lectorEscritor: LectorEscritor
@@ -20,12 +21,18 @@ export default class BlackJack{
         console.log("Sus cartas",[cartaUno],[cartaDos], " = ", suma)
         let opciones:string=read.question("Desea otra carta o se planta? (C=CARTA),(P=PLANTARSE): ").toUpperCase();
         let premio:number=0;
-
+        
+        if(opciones!="P" && opciones!="C"){
+            throw new CustomError("La opcion Ingresada debe ser C o P");
+        }
         while(suma<=21 && opciones !="P"){
             cartaAleatoria=this.aleatorio(1,10);
             suma=suma +cartaAleatoria;
             console.log("Sus cartas",[cartaUno],[cartaDos],[cartaAleatoria], " = ", suma)
             opciones=read.question("Desea otra carta o se planta? (C=CARTA),(P=PLANTARSE): ").toUpperCase();
+            if(opciones!="P" && opciones!="C"){
+                throw new CustomError("La opcion Ingresada debe ser C o P");
+            }
         }
         if(opciones=="P"){
             if(suma<21 && cartaCrupier<suma) {

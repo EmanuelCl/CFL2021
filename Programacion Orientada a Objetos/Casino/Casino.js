@@ -15,16 +15,40 @@ var Casino = /** @class */ (function () {
         this.tragamonedasDos = new TragamonedasDos_1.default();
     }
     Casino.prototype.jugarTragamonedas = function () {
-        this.tragamonedas.jugarTragamonedas();
+        try {
+            this.tragamonedas.jugarTragamonedas();
+        }
+        catch (error) {
+            console.log('Ocurrió un error esperado, juego finalizado');
+            console.log(error);
+        }
     };
     Casino.prototype.jugarTragramonedasDos = function () {
-        this.tragamonedasDos.jugarVariante();
+        try {
+            this.tragamonedasDos.jugarVariante();
+        }
+        catch (error) {
+            console.log("Ocurrio un error esperado, juego finalizado");
+            console.log(error);
+        }
     };
     Casino.prototype.jugarRuleta = function () {
-        this.ruleta.jugarRuleta();
+        try {
+            this.ruleta.jugarRuleta();
+        }
+        catch (error) {
+            console.log("Ocurrio un error esperado, juego finalizado");
+            console.log(error);
+        }
     };
     Casino.prototype.jugarBlackJack = function () {
-        this.blackJack.jugarBlackJack();
+        try {
+            this.blackJack.jugarBlackJack();
+        }
+        catch (error) {
+            console.log("Ocurrio un error esperado, juego finalizado");
+            console.log(error);
+        }
     };
     return Casino;
 }());

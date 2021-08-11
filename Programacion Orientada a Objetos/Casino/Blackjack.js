@@ -24,6 +24,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var LectorEscritor_1 = __importDefault(require("./LectorEscritor"));
 var read = __importStar(require("readline-sync"));
+var CustomError_1 = __importDefault(require("./CustomError"));
 var BlackJack = /** @class */ (function () {
     function BlackJack() {
         this.lectorEscritor = new LectorEscritor_1.default();
@@ -41,11 +42,17 @@ var BlackJack = /** @class */ (function () {
         console.log("Sus cartas", [cartaUno], [cartaDos], " = ", suma);
         var opciones = read.question("Desea otra carta o se planta? (C=CARTA),(P=PLANTARSE): ").toUpperCase();
         var premio = 0;
+        if (opciones != "P" && opciones != "C") {
+            throw new CustomError_1.default("La opcion Ingresada debe ser C o P");
+        }
         while (suma <= 21 && opciones != "P") {
             cartaAleatoria = this.aleatorio(1, 10);
             suma = suma + cartaAleatoria;
             console.log("Sus cartas", [cartaUno], [cartaDos], [cartaAleatoria], " = ", suma);
             opciones = read.question("Desea otra carta o se planta? (C=CARTA),(P=PLANTARSE): ").toUpperCase();
+            if (opciones != "P" && opciones != "C") {
+                throw new CustomError_1.default("La opcion Ingresada debe ser C o P");
+            }
         }
         if (opciones == "P") {
             if (suma < 21 && cartaCrupier < suma) {

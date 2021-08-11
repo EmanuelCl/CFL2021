@@ -1,5 +1,6 @@
 import * as read from "readline-sync";
 import LectorEscritor from "./LectorEscritor";
+import CustomError from "./CustomError";
 
 export default class Tragamonedas{
     protected lectorEscritor: LectorEscritor;
@@ -17,7 +18,11 @@ export default class Tragamonedas{
         let numeroDos:number=this.aleatorio(1,9);
         let numeroTres:number=this.aleatorio(1,9);
         let premio:number=0;
+        let resultado:number;
 
+        if(monto<0){
+            throw new Error('El monto ingresado no puede ser menor a 0');
+        }
         if(numeroUno==numeroDos && numeroUno==numeroTres){
             premio=monto*10;
             console.log([numeroUno],[numeroDos],[numeroTres]);
@@ -41,3 +46,6 @@ export default class Tragamonedas{
         this.lectorEscritor.guardarResultado("tragamonedas.txt", `${"ESTADISTICAS JUGADA:"} \n ${"Premio Ganado: "}${premio} \n ${"Monto Apostado: "}${monto} \n ${"Numeros Jugada: "}${numeroUno},${numeroDos},${numeroTres} \n`);
     }
 }
+
+
+

@@ -37,6 +37,10 @@ var Tragamonedas = /** @class */ (function () {
         var numeroDos = this.aleatorio(1, 9);
         var numeroTres = this.aleatorio(1, 9);
         var premio = 0;
+        var resultado;
+        if (monto < 0) {
+            throw new Error('El monto ingresado no puede ser menor a 0');
+        }
         if (numeroUno == numeroDos && numeroUno == numeroTres) {
             premio = monto * 10;
             console.log([numeroUno], [numeroDos], [numeroTres]);

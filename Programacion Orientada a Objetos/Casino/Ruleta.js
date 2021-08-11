@@ -23,6 +23,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var read = __importStar(require("readline-sync"));
+var CustomError_1 = __importDefault(require("./CustomError"));
 var LectorEscritor_1 = __importDefault(require("./LectorEscritor"));
 var Ruleta = /** @class */ (function () {
     function Ruleta() {
@@ -37,10 +38,16 @@ var Ruleta = /** @class */ (function () {
         var parImpar = read.question("Desea apostar a: (PAR) , (IMPAR) , (X) Para continuar: ").toUpperCase();
         var premio = 0;
         var numero = this.aleatorio(0, 36);
+        if (apuesta < 0) {
+            throw new CustomError_1.default("El monto de la Apuesta no puede ser menor a $0");
+        }
         switch (opciones) {
             case "PLENO": {
                 var numIngresado = read.questionInt("Ingrese un numero: ");
                 premio = apuesta * 35;
+                if (numIngresado < 0 || numIngresado > 36) {
+                    throw new CustomError_1.default("El numero Ingresado no puede ser menor a 0 o mayor a 36");
+                }
                 if ((numIngresado == numero) || (numIngresado == 0)) {
                     console.log("Felicitaciones! has ganado: ", "$", premio);
                     console.log("Numero Ganador: ", numero);
@@ -55,6 +62,9 @@ var Ruleta = /** @class */ (function () {
                 var numIngresado = read.questionInt("Ingrese el Primer Numero: ");
                 var numIngresadoDos = read.questionInt("Ingrese el Segundo Numero: ");
                 premio = apuesta * 17;
+                if ((numIngresado < 0 || numIngresadoDos < 0) || (numIngresado > 36 || numIngresadoDos > 36)) {
+                    throw new CustomError_1.default("Los numeros Ingresados no pueden ser menores a 0 o mayores a 36");
+                }
                 if (numIngresado == numero || numIngresadoDos == numero) {
                     console.log("Felicitaciones! has ganado: ", "$", premio);
                     console.log("Numero Ganador: ", numero);
@@ -70,6 +80,9 @@ var Ruleta = /** @class */ (function () {
                 var numIngresadoDos = read.questionInt("Ingrese el segundo numero: ");
                 var numIngresadoTres = read.questionInt("Ingrese el tercer numero: ");
                 premio = apuesta * 11;
+                if ((numIngresado < 0 || numIngresadoDos < 0 || numIngresadoTres < 0) || (numIngresado > 36 || numIngresadoDos > 36 || numIngresadoTres > 36)) {
+                    throw new CustomError_1.default("Los numeros Ingresados no pueden ser menores a 0 o mayores a 36");
+                }
                 if (numIngresado == numero || numIngresadoDos == numero || numIngresadoTres == numero) {
                     console.log("Felicitaciones! has ganado: ", "$", premio);
                     console.log("Numero Ganador: ", numero);
@@ -86,6 +99,9 @@ var Ruleta = /** @class */ (function () {
                 var numIngresadoTres = read.questionInt("Ingrese el tercer numero: ");
                 var numIngresadoCuatro = read.questionInt("Ingrese el cuarto numero: ");
                 premio = apuesta * 8;
+                if ((numIngresado < 0 || numIngresadoDos < 0 || numIngresadoTres < 0 || numIngresadoCuatro < 0) || (numIngresado > 36 || numIngresadoDos > 36 || numIngresadoTres > 36 || numIngresadoCuatro > 36)) {
+                    throw new CustomError_1.default("Los numeros Ingresados no pueden ser menores a 0 o mayores a 36");
+                }
                 if (numIngresado == numero || numIngresadoDos == numero || numIngresadoTres == numero || numIngresadoCuatro == numero) {
                     console.log("Felicitaciones! has ganado: ", "$", premio);
                     console.log("Numero Ganador: ", numero);
@@ -104,6 +120,9 @@ var Ruleta = /** @class */ (function () {
                 var numIngresadoCinco = read.questionInt("Ingrese el quinto numero: ");
                 var numIngresadoSeis = read.questionInt("Ingrese el sexto numero: ");
                 premio = apuesta * 5;
+                if ((numIngresado < 0 || numIngresadoDos < 0 || numIngresadoTres < 0 || numIngresadoCuatro < 0 || numIngresadoCinco < 0 || numIngresadoSeis < 0) || (numIngresado > 36 || numIngresadoDos > 36 || numIngresadoTres > 36 || numIngresadoCuatro > 36 || numIngresadoCinco > 36 || numIngresadoSeis > 36)) {
+                    throw new CustomError_1.default("Los numeros Ingresados no pueden ser menores a 0 o mayores a 36");
+                }
                 if (numIngresado == numero || numIngresadoDos == numero || numIngresadoTres == numero || numIngresadoCuatro == numero || numIngresadoCinco == numero || numIngresadoSeis == numero) {
                     console.log("Felicitaciones! has ganado: ", "$", premio);
                     console.log("Numero Ganador: ", numero);
@@ -120,6 +139,9 @@ var Ruleta = /** @class */ (function () {
                 var columnaDos = [2, 5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35];
                 var columnaTres = [3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36];
                 premio = apuesta * 2;
+                if (columna < 1 || columna > 3) {
+                    throw new CustomError_1.default("El numero Ingresado no puede ser mayor a 3 o menor a 0 ");
+                }
                 switch (columna) {
                     case 1: {
                         for (var i = 0; i < columnaUno.length; i++) {
@@ -167,6 +189,9 @@ var Ruleta = /** @class */ (function () {
                 var segunDocena = this.aleatorio(13, 24);
                 var tercerDocena = this.aleatorio(25, 36);
                 premio = apuesta * 2;
+                if (docena < 1 || docena > 3) {
+                    throw new CustomError_1.default("El numero Ingresado no puede ser mayor a 3 o menor a 0 ");
+                }
                 switch (docena) {
                     case 1: {
                         if (numero == primerDocena) {
@@ -207,6 +232,9 @@ var Ruleta = /** @class */ (function () {
                     }
                 }
             }
+        }
+        if (parImpar != "PAR" && parImpar != "IMPAR") {
+            throw new CustomError_1.default("El texto Ingresado no es PAR o IMPAR");
         }
         if (parImpar == "PAR") {
             premio = apuesta;

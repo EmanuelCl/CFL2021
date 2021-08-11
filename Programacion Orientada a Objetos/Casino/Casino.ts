@@ -17,15 +17,35 @@ export default class Casino{
 	}
     
 	public jugarTragamonedas():void{
-		this.tragamonedas.jugarTragamonedas();
+        try {
+		    this.tragamonedas.jugarTragamonedas();
+        }catch(error){
+            console.log('Ocurrió un error esperado, juego finalizado');
+            console.log(error);
+        }
 	}
     public jugarTragramonedasDos():void{
-        this.tragamonedasDos.jugarVariante();
+        try {
+            this.tragamonedasDos.jugarVariante();
+        }catch(error){
+            console.log("Ocurrio un error esperado, juego finalizado");
+            console.log(error);
+        }
     }
     public jugarRuleta():void{
+        try {
         this.ruleta.jugarRuleta();
+        }catch(error){
+            console.log("Ocurrio un error esperado, juego finalizado");
+            console.log(error);
+        }
     }
     public jugarBlackJack():void{
+        try {
         this.blackJack.jugarBlackJack();
+        }catch(error){
+            console.log("Ocurrio un error esperado, juego finalizado");
+            console.log(error);
+        }
     }
 }
