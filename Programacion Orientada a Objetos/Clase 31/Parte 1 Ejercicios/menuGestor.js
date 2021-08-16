@@ -27,11 +27,24 @@ var read = __importStar(require("readline-sync"));
 var gestor = new GestorPistas_1.default();
 gestor.cargarPistas("pistas.txt", "\n");
 gestor.mostrarPista();
-var opcion = read.question("Desea Crear una Nueva Lista de Reproduccion? X para finalizar: ").toUpperCase(); //si para crear, x para salir
+var opcion = read.question("Opciones: (C=Crear Lista de Reproduccion), (T=Ver cantidad total de pistas), (D=Ver duracion total de la pista), (DT=Ver duracion total lista) X para finalizar: ").toUpperCase();
 while (opcion != "X") {
-    if (opcion == "SI") {
-        gestor.crearLista();
+    switch (opcion) {
+        case "C": {
+            gestor.crearLista();
+            break;
+        }
+        case "T": {
+            gestor.mostrarTotal();
+            break;
+        }
+        case "D": {
+            var identificador = read.questionInt("Ingrese el numero de identificador de la pista: ");
+            gestor.duracionTotalPista(identificador);
+        }
+        case "DT": {
+            gestor.duracionTotalLista();
+        }
     }
-    gestor.mostrarPista();
-    opcion = read.question("Desea Crear una Nueva Lista de Reproduccion? X para finalizar: ").toUpperCase();
+    opcion = read.question("Opciones: (C=Crear Lista de Reproduccion), (T=Ver cantidad total de pistas), (D=Ver duracion total de la pista), (DT=Ver duracion total lista) X para finalizar: ").toUpperCase();
 }

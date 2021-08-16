@@ -42,10 +42,27 @@ var GestorPistas = /** @class */ (function () {
         var duracion = read.questionInt("Ingrese la duracion de la pista: ");
         var interprete = read.question("Ingrese el interprete de la pista: ");
         this.listaReproduccion.push(new Pista_1.default(identificador, titulo, duracion, interprete));
-        var totalPistas = this.listaReproduccion.length;
         console.log("Creando Pista de Audio....");
         console.log("Agregando a la lista de reproduccion....");
+        console.log(this.listaReproduccion);
+    };
+    GestorPistas.prototype.mostrarTotal = function () {
+        var totalPistas = this.listaReproduccion.length;
         console.log("Total de Pistas en la Lista: ", totalPistas);
+    };
+    GestorPistas.prototype.duracionTotalPista = function (identificador) {
+        for (var i = 0; i < this.listaReproduccion.length; i++) {
+            if (identificador == this.listaReproduccion[i].getIdentificador()) {
+                console.log("La duracion de la pista es de:", this.listaReproduccion[i].getDuracion(), "Horas");
+            }
+        }
+    };
+    GestorPistas.prototype.duracionTotalLista = function () {
+        var duracion = 0;
+        for (var i = 0; i < this.listaReproduccion.length; i++) {
+            duracion += this.listaReproduccion[i].getDuracion();
+        }
+        console.log("La duracion total de la lista de Reproduccion es de", duracion, "Horas");
     };
     GestorPistas.prototype.mostrarPista = function () {
         console.log(this.listaReproduccion);

@@ -22,10 +22,27 @@ export default class GestorPistas implements Administracion{
         let duracion:number=read.questionInt("Ingrese la duracion de la pista: ");
         let interprete:string=read.question("Ingrese el interprete de la pista: ");
         this.listaReproduccion.push(new Pista(identificador,titulo,duracion,interprete));
-        let totalPistas:number=this.listaReproduccion.length
         console.log("Creando Pista de Audio....");
         console.log("Agregando a la lista de reproduccion....");
+        console.log(this.listaReproduccion);
+    }
+    public mostrarTotal():void{
+        let totalPistas:number=this.listaReproduccion.length
         console.log("Total de Pistas en la Lista: ",totalPistas);
+    }
+    public duracionTotalPista(identificador:number):void{
+        for(let i=0;i<this.listaReproduccion.length;i++){
+            if(identificador == this.listaReproduccion[i].getIdentificador()){
+                console.log("La duracion de la pista es de:",this.listaReproduccion[i].getDuracion(),"Horas");
+            }
+        }
+    }
+    public duracionTotalLista():void{
+        let duracion:number=0;
+        for(let i=0;i<this.listaReproduccion.length;i++){
+            duracion += this.listaReproduccion[i].getDuracion();
+        }
+        console.log("La duracion total de la lista de Reproduccion es de",duracion,"Horas");
     }
     public mostrarPista():void{
         console.log(this.listaReproduccion)
