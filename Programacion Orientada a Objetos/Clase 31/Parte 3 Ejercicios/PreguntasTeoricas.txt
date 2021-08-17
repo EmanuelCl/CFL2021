@@ -1,0 +1,18 @@
+Enumerar tres funcionalidades de NPM y describirlas:
+1 - Instalar Librerias: Nos permite descargar e instalar paquetes o librerias creadas por otros usuarios.
+2 - Crear un proyecto: Nos permite crear un proyecto
+2 - Definir Tareas: Podemos definir tareas en los proyectos para facilitar por ejemplo la ejecucion o compilacion de los archivos.
+------------------------------------------------------------------------------------------------------------------------------------
+¿Cuál es el beneficio de usar un lenguaje con tipos?
+Hace que nuestro codigo sea mas legible y facil de entender.
+------------------------------------------------------------------------------------------------------------------------------------
+¿A qué se le llama variable interna? ¿Por qué internas?
+Las variables internas son los atributos de la clase y son internas por que no se pueden modificar directamente desde afuera.
+------------------------------------------------------------------------------------------------------------------------------------
+Explicar la diferencia entre composición y herencia.
+La diferencia es que composición esta compuesta por otras clases y herencia extiende y hereda sus atributos a una clase hija
+------------------------------------------------------------------------------------------------------------------------------------
+Explicar el mecanismo que provee TypeScript para manejar casos en donde los parámetros que le llegan a un método son inválidos.
+TypeScript nos da una clase interna llamada "Error" en la cual si el usuario nos ingresa algo no valido se crea el error, se muestra un
+mensaje y se captura el error para que el programa no se rompa. Tambien podemos crear nuestras propias clases de errores extendiendo a
+la clase "Error".
