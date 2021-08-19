@@ -22,24 +22,32 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var Kiosco_1 = __importDefault(require("./Kiosco"));
 var read = __importStar(require("readline-sync"));
-var gestorLegajos_1 = __importDefault(require("./gestorLegajos"));
-var legajo = new gestorLegajos_1.default();
-legajo.cargarAlumnos("alumnos.txt", "\n");
-legajo.cargarNotas("notas.txt", "\n");
-legajo.mostrarAlumnos();
-var opcion = read.question("Elija una opcion: (P=Ver Promedio de un alumno) , (T=Ver Promedio de todos los alumnos) , X para finalizar: ").toUpperCase();
+var kiosco = new Kiosco_1.default();
+kiosco.cargarArtDisponible();
+kiosco.mostrarStock();
+var opcion = read.question("Elija una Opcion: (C=Comprar Articulo) , (S=Stock Disponible) , (V=Articulos Vendidos), (B=Borrar listado de Articulos vendidos),  X para finalizar: ").toUpperCase();
 while (opcion != "X") {
     switch (opcion) {
-        case "P": {
-            var nombre = read.question("Ingrese el nombre del Alumno: ");
-            legajo.buscarAlumno(nombre);
+        case "C": {
+            var articulo = read.question("Ingrese el nombre del articulo que desea comprar: ");
+            kiosco.comprarArticulo(articulo);
+            console.log("Gracias por su Compra");
             break;
         }
-        case "T": {
-            legajo.obtenerPromedioGeneral();
+        case "S": {
+            kiosco.mostrarStock();
+        }
+        case "V": {
+            kiosco.cargarArtVendidos();
+            kiosco.mostrarVendidos();
+            break;
+        }
+        case "B": {
+            kiosco.vaciarTxtVendidos();
             break;
         }
     }
-    opcion = read.question("Elija una opcion: (P=Ver Promedio de un alumno) , (T=Ver Promedio de todos los alumnos) , X para finalizar: ").toUpperCase();
+    opcion = read.question("Elija una Opcion: (C=Comprar Articulo) , (S=Stock Disponible) , (V=Articulos Vendidos), (B=Borrar listado de Articulos vendidos),  X para finalizar: ").toUpperCase();
 }

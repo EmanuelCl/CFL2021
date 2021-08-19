@@ -41,16 +41,16 @@ var gestorLegajos = /** @class */ (function () {
         var promedio;
         promedio = this.notas[posicion].getNotaUno() + this.notas[posicion].getNotaDos() + this.notas[posicion].getNotaTres();
         console.log(this.alumnos[posicion]);
-        console.log("El promedio del Alumno es de ", promedio);
+        console.log("El promedio del Alumno es de ", promedio / 3);
     };
     gestorLegajos.prototype.obtenerPromedioGeneral = function () {
         for (var i = 0; i < this.alumnos.length; i++) {
             var promedio = this.notas[i].getNotaUno() + this.notas[i].getNotaDos() + this.notas[i].getNotaTres();
-            console.log(this.alumnos[i], "Promedio: ", promedio);
+            console.log(this.alumnos[i], "Promedio: ", promedio / 3);
         }
     };
     gestorLegajos.prototype.mostrarAlumnos = function () {
-        console.log(this.alumnos.length);
+        console.log(this.alumnos);
     };
     return gestorLegajos;
 }());
