@@ -1,0 +1,6 @@
+emanuel;clementi;90234324;
+pepe;lopez;34324234;
+jaimito;martinez;32573214;
+lionel;messi;23474215;
+susana;gimenez;25742575;
+nicol;neuman;24753785;

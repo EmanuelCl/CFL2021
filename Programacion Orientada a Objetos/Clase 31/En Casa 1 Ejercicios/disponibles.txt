@@ -1,0 +1,11 @@
+chocolate;200;
+cigarrillos;500;
+snacks;150;
+gaseosa cocacola;185;
+jugo tang;20;
+cartulinas;50;
+azucar;124;
+yerba 1kg;450;
+jugo baggio;90;
+gaseosa fanta;180;
+gaseosa sprite;195;
