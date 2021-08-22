@@ -2,7 +2,7 @@ import * as RLS from 'readline-sync';
 import RegistroLibros from "./RegistroLibros";
 
 let registro: RegistroLibros = new RegistroLibros();
-registro.cargarLibros();
+registro.cargarLibros("libros.txt","\n");
 registro.mostrarLibros();
 
 let opcion: string = RLS.question('Ingrese una opcion:(C:CREAR)(R:BUSCAR)(U:BUSCAR Y REEMPLAZAR)(D:ELIMINAR), X para finalizar: ').toUpperCase();
@@ -19,7 +19,7 @@ while (opcion != 'X') {
             break;            
         }
         case 'U': {
-            nombre = RLS.question('Ingrese la palabra a buscar y reemplazar: ');
+            nombre = RLS.question('Ingrese el nombre del libro a buscar y reemplazar: ');
             registro.updateLibro(nombre);
             break;
         }
