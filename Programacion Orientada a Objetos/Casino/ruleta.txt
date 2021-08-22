@@ -1,0 +1,48 @@
+ESTADISTICAS JUGADA: 
+ Tipo de apuesta:  PLENO 
+ Premio Ganado: 2000 
+ Monto Apostado: 2000 
+ Par o Impar: PAR 
+ Numero Ganador: 15
+ESTADISTICAS JUGADA: 
+ Tipo de apuesta:  SEMIPLENO 
+ Premio Ganado: 2000 
+ Monto Apostado: 2000 
+ Par o Impar: PAR 
+ Numero Ganador: 17
+ESTADISTICAS JUGADA: 
+ Tipo de apuesta:  CALLE 
+ Premio Ganado: 2200000 
+ Monto Apostado: 200000 
+ Par o Impar: IMPAR 
+ Numero Ganador: 20
+ESTADISTICAS JUGADA: 
+ Tipo de apuesta:  CALLE 
+ Premio Ganado: 2000 
+ Monto Apostado: 2000 
+ Par o Impar: PAR 
+ Numero Ganador: 4
+ESTADISTICAS JUGADA: 
+ Tipo de apuesta:  CUADRO 
+ Premio Ganado: 2000 
+ Monto Apostado: 2000 
+ Par o Impar: PAR 
+ Numero Ganador: 24
+ESTADISTICAS JUGADA: 
+ Tipo de apuesta:  LINEA 
+ Premio Ganado: 2000 
+ Monto Apostado: 2000 
+ Par o Impar: PAR 
+ Numero Ganador: 22
+ESTADISTICAS JUGADA: 
+ Tipo de apuesta:  COLUMNA 
+ Premio Ganado: 40000 
+ Monto Apostado: 20000 
+ Par o Impar: IMPAR 
+ Numero Ganador: 22
+ESTADISTICAS JUGADA: 
+ Tipo de apuesta:  DOCENA 
+ Premio Ganado: 2000 
+ Monto Apostado: 2000 
+ Par o Impar: PAR 
+ Numero Ganador: 12

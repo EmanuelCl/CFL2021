@@ -1,0 +1,25 @@
+ESTADISTICAS JUGADA: 
+ Premio Ganado: 0 
+ Numero Ingresado: 50 
+ Monto Apostado: 20000 
+ Numeros Jugada: 85,1,42 
+ESTADISTICAS JUGADA: 
+ Premio Ganado: 0 
+ Numero Ingresado: 2 
+ Monto Apostado: 2 
+ Numeros Jugada: 83,12,1 
+ESTADISTICAS JUGADA: 
+ Premio Ganado: 0 
+ Numero Ingresado: 2 
+ Monto Apostado: 200 
+ Numeros Jugada: 14,36,77 
+ESTADISTICAS JUGADA: 
+ Premio Ganado: 0 
+ Numero Ingresado: 2000 
+ Monto Apostado: 20 
+ Numeros Jugada: 88,91,88 
+ESTADISTICAS JUGADA: 
+ Premio Ganado: 0 
+ Numero Ingresado: -2 
+ Monto Apostado: 20000 
+ Numeros Jugada: 30,44,82 

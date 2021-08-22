@@ -1,0 +1,49 @@
+BIENVENIDO AL CASINO! CONTAMOS CON VARIEDAD DE JUEGOS!
+TRAGAMONEDAS!
+Para jugar al TRAGAMONEDAS tienes que ingresar la cantidad de dinero a apostar.
+Una vez hecho, el programa iniciara automaticamente, se compararan 3 numeros al azar, al terminar
+obtendra alguno de los siguientes resultados:
+Felicinaciones! Has Ganado! + Monto Ganado.
+Lo sentimos has perdido!
+Automaticamente se mostraran las estadisticas de la jugada en ambos casos.
+El Premio dependera de si coinciden los 3 numeros o solo 2.
+Tres coincidencias: Diez veces lo apostado.
+Dos coincidencias: Dos veces lo apostado.
+La Probabilidad de ganar es del 22%.
+------------------------------------------------------------------------------------------------------
+TRAGAMONEDAS PLUS!
+Para jugar al TRAGAMONEDAS PLUS tienes que ingresar un numero del 0 al 100, y la cantidad a apostar.
+Una vez hecho, el programa iniciara automaticamente, se obtendran 3 numeros al azar, y se compararan
+con el numero ingresado, al terminar obtendra alguno de los siguientes resultados:
+Felicinaciones! Has Ganado! + Monto Ganado.
+Lo sentimos has perdido!
+El premio dependera de las coincidencias
+Una coincidencia: Diez veces lo apostado.
+Dos coincidencias: Cincuenta veces lo apostado.
+Tres coincidencias: Cien veces lo apostado.
+La probabilidad de ganar es del 2%.
+------------------------------------------------------------------------------------------------------
+RULETA!
+Para jugar a la RULETA tienes que elegir el tipo de apuesta que son las siguientes:
+1. “PLENO” apuesta a un número incluyendo 0 – paga 35 veces lo apostado - Probabilidad de ganar 5%.
+2. “SEMIPLENO” cubre dos números – paga 17 veces lo apostado - Probabilidad de ganar 5%.
+3. “CALLE” cubre tres números – paga 11 veces lo apostado - Probabilidad de ganar 8%.
+4. “CUADRO” cubre cuatro números – paga 8 veces lo apostado - Probabilidad de ganar 11%.
+5. “LINEA” cubre seis números – paga 5 veces lo apostado - Probabilidad de ganar 16%.
+6. “COLUMNA” cubre una columna vertical – paga 2 veces lo apostado - Probabilidad de ganar 33%.
+7. “DOCENA” cubre una serie de doce números- paga 2 veces lo apostado - Probabilidad de ganar 33%.
+Tambien puedes apostar a PAR o IMPAR, esta apuesta se hace a la vez que las anteriores:
+1. "PAR" - paga el monto apostado - Probabilidad de Ganar 50%.
+2. "IMPAR" - paga el monto apostado - Probabilidad de Ganar 50%.
+------------------------------------------------------------------------------------------------------
+BLACKJACK!
+Para jugar al BLACKJACK tienes que ingresar la cantidad de dinero a apostar.
+El objetivo es ganarle al crupier obteniendo el puntaje mas cercano a 21.
+Se repartiran dos cartas para cada jugador, con la suma de las cartas obtendra un valor, el crupier le
+preguntara si desea otra carta o se planta, si pide carta, se le sumara al valor total, si se planta y
+sus cartas totalizan un valor más cercano a 21 que las del Croupier, usted gana.
+Si sus cartas tienen un valor de 21 es BLACKJACK!
+Premio:
+Valor mas cercano a 21 - paga 2 veces lo apostado - Probabilidad de ganar 6%.
+Valor = 21 BLACKJACK - paga 10 veces lo apostado - Probabilidad de ganar 3%.
+
