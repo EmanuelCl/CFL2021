@@ -1,5 +1,5 @@
 "use strict";
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 var Vehiculo = /** @class */ (function () {
     function Vehiculo(tipo, patente, marca, modelo, año) {
         this.tipo = tipo;
@@ -25,4 +25,4 @@ var Vehiculo = /** @class */ (function () {
     };
     return Vehiculo;
 }());
-exports["default"] = Vehiculo;
+exports.default = Vehiculo;

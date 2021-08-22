@@ -14,8 +14,11 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-exports.__esModule = true;
-var Vehiculo_1 = require("./Vehiculo");
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var Vehiculo_1 = __importDefault(require("./Vehiculo"));
 var Camion = /** @class */ (function (_super) {
     __extends(Camion, _super);
     function Camion(tipo, patente, marca, modelo, año, cargaKg) {
@@ -27,5 +30,5 @@ var Camion = /** @class */ (function (_super) {
         return this.cargaKg;
     };
     return Camion;
-}(Vehiculo_1["default"]));
-exports["default"] = Camion;
+}(Vehiculo_1.default));
+exports.default = Camion;
