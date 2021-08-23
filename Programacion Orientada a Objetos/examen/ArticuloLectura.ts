@@ -1,27 +1,27 @@
 export default abstract class ArticuloLectura {
     private isbm:number;
-    private Autor:string;
-    private Editorial:string;
-    private Titulo:string;
+    private autor:string;
+    private editorial:string;
+    private titulo:string;
     protected cantidadPaginas:number
-    constructor(isbm:number,Autor:string,Editorial:string,Titulo:string,cantidadPaginas:number) {
+    constructor(isbm:number,autor:string,editorial:string,titulo:string,cantidadPaginas:number) {
         this.isbm=isbm;
-        this.Autor=Autor;
-        this.Editorial=Editorial;
-        this.Titulo=Titulo;
+        this.autor=autor;
+        this.editorial=editorial;
+        this.titulo=titulo;
         this.cantidadPaginas=cantidadPaginas;
     }
     public getIsbm():number{
         return this.isbm;
     }
     public getAutor():string{
-        return this.Autor;
+        return this.autor;
     }
     public getEditorial():string{
-        return this.Editorial;
+        return this.editorial;
     }
     public getTitulo():string{
-        return this.Titulo;
+        return this.titulo;
     }
     public getCantPaginas():number{
         return this.cantidadPaginas;
