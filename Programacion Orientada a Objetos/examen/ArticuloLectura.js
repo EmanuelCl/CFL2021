@@ -20,8 +20,8 @@ var ArticuloLectura = /** @class */ (function () {
     ArticuloLectura.prototype.getTitulo = function () {
         return this.Titulo;
     };
-    ArticuloLectura.prototype.setCantidadPaginas = function (c) {
-        this.cantidadPaginas = c;
+    ArticuloLectura.prototype.getCantPaginas = function () {
+        return this.cantidadPaginas;
     };
     return ArticuloLectura;
 }());

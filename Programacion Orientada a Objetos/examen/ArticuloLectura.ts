@@ -23,7 +23,8 @@ export default abstract class ArticuloLectura {
     public getTitulo():string{
         return this.Titulo;
     }
-    public setCantidadPaginas(c:number):void{
-        this.cantidadPaginas=c
+    public getCantPaginas():number{
+        return this.cantidadPaginas;
     }
+    abstract setCantidadPaginas(c:number):void
 }

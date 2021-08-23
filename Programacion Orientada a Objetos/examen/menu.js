@@ -60,6 +60,7 @@ while (opciones != "X") {
         case "B": {
             var id = read.questionInt("Ingrese el numero ID: ");
             bibloteca.eliminar(id);
+            bibloteca.mostrarBibloteca();
             break;
         }
         case "F": {
@@ -74,8 +75,9 @@ while (opciones != "X") {
         case "M": {
             var id = read.questionInt("Ingrese el numero ID: ");
             bibloteca.modificarPaginas(id);
+            bibloteca.mostrarBibloteca();
             break;
         }
     }
-    opciones = read.question("Ingrese Una Opcion: (A=Agregar Articulo) , (B=Borrar Articulo) , (M=Modificar Paginas) , (T=Buscar por Autor) , X para finalizar: ").toUpperCase();
+    opciones = read.question("Ingrese Una Opcion: (A=Agregar Articulo) , (B=Borrar Articulo) , (F=Buscar Articulo) (M=Modificar Paginas) , (T=Buscar por Autor) , X para finalizar: ").toUpperCase();
 }

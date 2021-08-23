@@ -27,6 +27,7 @@ var Revista = /** @class */ (function (_super) {
         return _this;
     }
     Revista.prototype.setCantidadPaginas = function (c) {
+        this.cantidadPaginas = c;
     };
     return Revista;
 }(ArticuloLectura_1.default));

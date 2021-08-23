@@ -8,6 +8,6 @@ export default class Revista extends ArticuloLectura{
         this.articulos=[]
     }
     public setCantidadPaginas(c:number):void{
-        
+        this.cantidadPaginas=c
     }
 }

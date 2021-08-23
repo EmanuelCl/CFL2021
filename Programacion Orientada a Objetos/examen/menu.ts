@@ -37,6 +37,7 @@ while(opciones!="X"){
         case "B":{
             let id:number=read.questionInt("Ingrese el numero ID: ");
             bibloteca.eliminar(id);
+            bibloteca.mostrarBibloteca();
             break;
         }
         case "F":{
@@ -50,9 +51,10 @@ while(opciones!="X"){
         }
         case "M":{
             let id:number=read.questionInt("Ingrese el numero ID: ");
-            bibloteca.modificarPaginas(id)
+            bibloteca.modificarPaginas(id);
+            bibloteca.mostrarBibloteca();
             break;
         }
     }
-    opciones=read.question("Ingrese Una Opcion: (A=Agregar Articulo) , (B=Borrar Articulo) , (M=Modificar Paginas) , (T=Buscar por Autor) , X para finalizar: ").toUpperCase();
+    opciones=read.question("Ingrese Una Opcion: (A=Agregar Articulo) , (B=Borrar Articulo) , (F=Buscar Articulo) (M=Modificar Paginas) , (T=Buscar por Autor) , X para finalizar: ").toUpperCase();
 }
