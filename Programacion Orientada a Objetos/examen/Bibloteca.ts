@@ -5,14 +5,14 @@ export default class Bibloteca{
     private elementos:ArticuloLectura[];
     private nombreBibloteca:string;
     private direccion:string;
-    public constructor(){
+    public constructor(nombreBibloteca:string,direccion:string){
         this.elementos=[];
-        this.nombreBibloteca="Bibloteca Rivadavia"
-        this.direccion="Almafuerte 570";
+        this.nombreBibloteca=nombreBibloteca;
+        this.direccion=direccion;
     }
-    public insertar(a:ArticuloLectura):boolean{
+    public insertar(a:ArticuloLectura):boolean{ //En este metodo no me pushea los datos que le pase, por que puede ser?
         for(let i=0;i<this.elementos.length;i++){
-            if(a==this.elementos[i]){
+            if(a!=this.elementos[i]){
                 this.elementos.push(a)
                 return true
             }
@@ -45,17 +45,15 @@ export default class Bibloteca{
         }
         return arreglo
     }
-    public modificarPaginas(id:number):boolean{
-        let cantidad:number=read.questionInt("Ingrese cantidad de paginas: ")
+    public modificarPaginas(id:number,paginas:number):boolean{
         for(let i=0;i<this.elementos.length;i++){
            if(id==this.elementos[i].getIsbm()){
-            this.elementos[i].setCantidadPaginas(cantidad)
+            this.elementos[i].setCantidadPaginas(paginas)
            }
         }
         return true
     }
     public mostrarBibloteca():void{
-        console.log(this.nombreBibloteca,this.direccion);
         console.log(this.elementos)
     }
 }

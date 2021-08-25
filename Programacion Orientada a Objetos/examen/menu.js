@@ -26,7 +26,7 @@ var Bibloteca_1 = __importDefault(require("./Bibloteca"));
 var Libro_1 = __importDefault(require("./Libro"));
 var Revista_1 = __importDefault(require("./Revista"));
 var read = __importStar(require("readline-sync"));
-var bibloteca = new Bibloteca_1.default();
+var bibloteca = new Bibloteca_1.default("Bibloteca Rivadavia", "Almafuerte 570");
 bibloteca.insertar(new Libro_1.default(22340, "Dan Brown", "Random House", "El código Da Vinci", 200));
 bibloteca.insertar(new Libro_1.default(65423, "J.K.Rowling", "Salamandra", "Harry Potter", 500));
 bibloteca.insertar(new Revista_1.default(45721, "Caras", "Revista Caras", "Vacunas Coronavirus", 50));
@@ -74,7 +74,8 @@ while (opciones != "X") {
         }
         case "M": {
             var id = read.questionInt("Ingrese el numero ID: ");
-            bibloteca.modificarPaginas(id);
+            var paginas = read.questionInt("Ingrese la cantidad de paginas: ");
+            bibloteca.modificarPaginas(id, paginas);
             bibloteca.mostrarBibloteca();
             break;
         }

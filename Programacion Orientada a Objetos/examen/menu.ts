@@ -2,7 +2,7 @@ import Bibloteca from "./Bibloteca";
 import Libro from "./Libro";
 import Revista from "./Revista";
 import * as read from "readline-sync";
-let bibloteca:Bibloteca=new Bibloteca();
+let bibloteca:Bibloteca=new Bibloteca("Bibloteca Rivadavia","Almafuerte 570");
 bibloteca.insertar(new Libro(22340,"Dan Brown","Random House","El código Da Vinci",200));
 bibloteca.insertar(new Libro(65423,"J.K.Rowling","Salamandra","Harry Potter",500));
 bibloteca.insertar(new Revista(45721,"Caras","Revista Caras","Vacunas Coronavirus",50));
@@ -51,7 +51,8 @@ while(opciones!="X"){
         }
         case "M":{
             let id:number=read.questionInt("Ingrese el numero ID: ");
-            bibloteca.modificarPaginas(id);
+            let paginas:number=read.questionInt("Ingrese la cantidad de paginas: ");
+            bibloteca.modificarPaginas(id,paginas);
             bibloteca.mostrarBibloteca();
             break;
         }

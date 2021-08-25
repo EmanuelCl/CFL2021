@@ -28,6 +28,16 @@ var Revista = /** @class */ (function (_super) {
     }
     Revista.prototype.setCantidadPaginas = function (c) {
         this.cantidadPaginas = c;
+        if (c > 50) {
+            throw new Error("El numero de paginas supera las 50");
+        }
+        try {
+            var paginas = c;
+        }
+        catch (error) {
+            console.log("Ocurrio un error esperado, programa finalizado.");
+            c = 0;
+        }
     };
     return Revista;
 }(ArticuloLectura_1.default));
