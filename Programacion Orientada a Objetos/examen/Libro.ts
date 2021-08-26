@@ -7,7 +7,7 @@ export default class Libro extends ArticuloLectura{
         super(isbm,Autor,Editorial,Titulo,cantidadPaginas)
     }
     public setCantidadPaginas(c:number):void{
-        let cantidad:number=read.questionInt("Ingrese la cantidad de paginas: ");
+        this.cantidadPaginas=c
         
     }
 }
