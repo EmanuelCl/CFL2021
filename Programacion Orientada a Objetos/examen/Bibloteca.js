@@ -7,21 +7,25 @@ var Bibloteca = /** @class */ (function () {
         this.direccion = direccion;
     }
     Bibloteca.prototype.insertar = function (a) {
-        for (var i = 0; i < this.elementos.length; i++) {
-            if (a != this.elementos[i]) {
-                this.elementos.push(a);
-                return true;
-            }
+        var articuloDuplicado = this.buscar(a.getIsbm());
+        if (!articuloDuplicado) {
+            this.elementos.push(a);
+            return true;
         }
         return false;
     };
     Bibloteca.prototype.buscar = function (id) {
-        for (var i = 0; i < this.elementos.length; i++) {
-            if (id == this.elementos[i].getIsbm()) {
-                return this.elementos[i];
+        try {
+            for (var i = 0; i < this.elementos.length; i++) {
+                if (id == this.elementos[i].getIsbm()) {
+                    return this.elementos[i];
+                }
             }
+            throw new Error("Articulo no encontrado");
         }
-        return null;
+        catch (error) {
+            console.log(error.message);
+        }
     };
     Bibloteca.prototype.eliminar = function (id) {
         for (var i = 0; i < this.elementos.length; i++) {
@@ -33,7 +37,7 @@ var Bibloteca = /** @class */ (function () {
         return false;
     };
     Bibloteca.prototype.buscarPorAutor = function (a) {
-        var arreglo;
+        var arreglo = [];
         for (var i = 0; i < this.elementos.length; i++) {
             if (a == this.elementos[i].getAutor()) {
                 arreglo.push(this.elementos[i]);
@@ -41,13 +45,21 @@ var Bibloteca = /** @class */ (function () {
         }
         return arreglo;
     };
-    Bibloteca.prototype.modificarPaginas = function (id, paginas) {
-        for (var i = 0; i < this.elementos.length; i++) {
-            if (id == this.elementos[i].getIsbm()) {
-                this.elementos[i].setCantidadPaginas(paginas);
+    Bibloteca.prototype.modificarPaginas = function (id, cantidad) {
+        if (cantidad <= 0) {
+            throw new Error("La cantidad de paginas debe ser mayor a 0");
+        }
+        try {
+            var articulo = this.buscar(id);
+            if (articulo && cantidad > 0) {
+                articulo.setCantidadPaginas(cantidad);
+                return true;
             }
         }
-        return true;
+        catch (error) {
+            console.log(error);
+            return false;
+        }
     };
     Bibloteca.prototype.mostrarBibloteca = function () {
         console.log(this.elementos);

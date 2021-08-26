@@ -8,15 +8,13 @@ export default class Revista extends ArticuloLectura{
         this.articulos=[]
     }
     public setCantidadPaginas(c:number):void{
-        this.cantidadPaginas=c
-        if(c>50){
-            throw new Error("El numero de paginas supera las 50");                
-        }
         try {
-            let paginas:number=c
+            if(c>50){
+                throw new Error("El numero de paginas supera las 50");                
+            }
+            this.cantidadPaginas=c
         } catch (error) {
-            console.log("Ocurrio un error esperado, programa finalizado.")
-            c=0;
+            throw error        
         }
     }
 }

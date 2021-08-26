@@ -14,12 +14,6 @@ var ArticuloLectura = /** @class */ (function () {
     ArticuloLectura.prototype.getAutor = function () {
         return this.autor;
     };
-    ArticuloLectura.prototype.getEditorial = function () {
-        return this.editorial;
-    };
-    ArticuloLectura.prototype.getTitulo = function () {
-        return this.titulo;
-    };
     ArticuloLectura.prototype.getCantPaginas = function () {
         return this.cantidadPaginas;
     };

@@ -17,12 +17,6 @@ export default abstract class ArticuloLectura {
     public getAutor():string{
         return this.autor;
     }
-    public getEditorial():string{
-        return this.editorial;
-    }
-    public getTitulo():string{
-        return this.titulo;
-    }
     public getCantPaginas():number{
         return this.cantidadPaginas;
     }

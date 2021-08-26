@@ -10,51 +10,62 @@ export default class Bibloteca{
         this.nombreBibloteca=nombreBibloteca;
         this.direccion=direccion;
     }
-    public insertar(a:ArticuloLectura):boolean{ //En este metodo no me pushea los datos que le pase, por que puede ser?
-        for(let i=0;i<this.elementos.length;i++){
-            if(a!=this.elementos[i]){
-                this.elementos.push(a)
-                return true
-            }
+    public insertar(a:ArticuloLectura):boolean{
+        let articuloDuplicado:ArticuloLectura=this.buscar(a.getIsbm());
+        if(!articuloDuplicado){
+            this.elementos.push(a);
+            return true;
         }
-        return false
+        return false;
     }
     public buscar(id:number):ArticuloLectura{
-        for (let i = 0; i < this.elementos.length; i++) {
-            if(id == this.elementos[i].getIsbm()){
-                return this.elementos[i]
+        try {
+            for (let i = 0; i < this.elementos.length; i++) {
+                if(id == this.elementos[i].getIsbm()){
+                    return this.elementos[i];
+                }
             }
+            throw new Error("Articulo no encontrado");
+            
+        } catch (error) {
+            console.log(error.message);
         }
-        return null
     }
     public eliminar(id:number):boolean{
         for (let i = 0; i < this.elementos.length; i++) {
             if(id == this.elementos[i].getIsbm()){
                 this.elementos.splice(i,1);
-                return true
+                return true;
             }
         }
-        return false
+        return false;
     } 
     public buscarPorAutor(a:string):ArticuloLectura[]{
-        let arreglo:ArticuloLectura[];
+        let arreglo:ArticuloLectura[]=[];
         for(let i=0;i<this.elementos.length;i++){
             if(a==this.elementos[i].getAutor()){
-                arreglo.push(this.elementos[i])
+                arreglo.push(this.elementos[i]);
             }
         }
-        return arreglo
+        return arreglo;
     }
-    public modificarPaginas(id:number,paginas:number):boolean{
-        for(let i=0;i<this.elementos.length;i++){
-           if(id==this.elementos[i].getIsbm()){
-            this.elementos[i].setCantidadPaginas(paginas)
-           }
+    public modificarPaginas(id:number,cantidad:number):boolean{
+        if(cantidad<=0){
+            throw new Error("La cantidad de paginas debe ser mayor a 0"); 
         }
-        return true
+        try {
+            let articulo:ArticuloLectura=this.buscar(id);
+            if(articulo && cantidad>0){
+                articulo.setCantidadPaginas(cantidad);
+                return true
+            }
+        } catch (error) {
+            console.log(error);
+            return false;
+        }
     }
     public mostrarBibloteca():void{
-        console.log(this.elementos)
+        console.log(this.elementos);
     }
 }
 
