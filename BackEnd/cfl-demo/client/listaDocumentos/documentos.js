@@ -1,11 +1,31 @@
 "use strict"
 let botonAgregar = document.querySelector("#agregar");
-botonAgregar.addEventListener("click",agregarDocumentos);
 let preCargados=document.querySelector("#mostrar");
-preCargados.addEventListener("click",documentosCargados);
-
+let autorMasDocu=document.querySelector("#autorMasDocu");
 let documentos = []
-function documentosCargados(){
+
+botonAgregar.addEventListener("click",() =>{
+    let titulo = document.querySelector("#titulo").value;
+    let autor = document.querySelector("#autor").value;
+    let contenido = document.querySelector("#contenido").value;
+    let fecha = parseInt(document.querySelector("#fecha").value);
+
+    let documento = {
+        "Documento":[
+            {
+                "titulo":titulo,
+                "autor":autor,
+                "contenido":contenido,
+                "fecha":fecha,
+            }
+        ]
+    }
+    documentos.push(documento);
+    
+    mostrarDocumentos();
+});
+
+preCargados.addEventListener("click",() => {
     let documento = {
         "Documento":[
             {
@@ -52,52 +72,33 @@ function documentosCargados(){
             }
         ]
     }
-    
     documentos.push(documento);
 
     mostrarDocumentos();
-}
-function agregarDocumentos(){
-    let titulo = document.querySelector("#titulo").value;
-    let autor = document.querySelector("#autor").value;
-    let contenido = document.querySelector("#contenido").value;
-    let fecha = parseInt(document.querySelector("#fecha").value);
+});
 
-    let documento = {
-        "Documento":[
-            {
-                "titulo":titulo,
-                "autor":autor,
-                "contenido":contenido,
-                "fecha":fecha,
-            }
-        ]
-    }
-    documentos.push(documento);
-    
-    mostrarDocumentos();
-}
 function mostrarDocumentos(){
     let html = '';
     for (let i=0;i<documentos.length;i++) {
       html += `
-              <ul>
-                  <li>${documentos[i].titulo}</li>
-                  <li>${documentos[i].autor}</li>
-                  <li>${documentos[i].contenido}</li>
-                  <li>${documentos[i].fecha}</li>
+              <ul> 
+                  <li>${documentos[i].Documento[i].titulo}</li>
+                  <li>${documentos[i].Documento[i].autor}</li>
+                  <li>${documentos[i].Documento[i].contenido}</li>
+                  <li>${documentos[i].Documento[i].fecha}</li>
                   <hr></hr>
               </ul>
           `;
     }
     document.querySelector('#lista').innerHTML = html;
 }
-function buscar(){
-    let autor;
+autorMasDocu.addEventListener("click", () => {
+    let contador=0;
     for(let i=0;i<documentos.length;i++){
-        autor=documentos[i]
-        if(autor==documentos[i+1]){
-
+        if((documentos[i].Documento[i].autor)==(documentos[i+1].Documento[i+1].autor)){
+            contador++
+            
         }
     }
-}
+    document.querySelector("#masDocument").innerHTML=contador;
+});
