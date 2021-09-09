@@ -1,0 +1,11 @@
+#cliente{
+    font-size: 20px;
+    display: flex;
+    justify-content: flex-start;
+}
+p{
+width: 180px;
+}
+table{
+    font-size: 20px;
+}
