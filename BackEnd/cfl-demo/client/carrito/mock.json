@@ -1,0 +1,25 @@
+{
+    "status": "OK",
+    "compras": [
+        {
+            "producto": "cama",
+            "precio": 190,
+            "cantidad":3
+        },
+        {
+            "producto": "ropero",
+            "precio": 200,
+            "cantidad":1
+        },
+        {
+            "producto": "silla",
+            "precio": 100,
+            "cantidad":6
+        },
+        {
+            "producto": "mesa",
+            "precio": 600,
+            "cantidad":1
+        }
+    ]
+}

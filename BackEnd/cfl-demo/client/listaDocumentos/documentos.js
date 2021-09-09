@@ -97,7 +97,6 @@ autorMasDocu.addEventListener("click", () => {
     for(let i=0;i<documentos.length;i++){
         if((documentos[i].Documento[i].autor)==(documentos[i+1].Documento[i+1].autor)){
             contador++
-            
         }
     }
     document.querySelector("#masDocument").innerHTML=contador;

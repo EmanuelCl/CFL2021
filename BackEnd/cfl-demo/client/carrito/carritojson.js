@@ -3,16 +3,39 @@ let btnAgregar = document.querySelector('#btnAgregar');
 btnAgregar.addEventListener('click', agregar);
 let btnTotal = document.querySelector('#btnTotal');
 btnTotal.addEventListener('click', sumar);
+
 let compras = [];
+
+async function load(){
+  let container = document.querySelector("#app"); 
+  
+  try {
+      let response = await fetch("/producto");
+      if(response.ok) {
+          let t = await response.json();
+          compras=t
+          mostrarTablaCompras();
+      }
+      else{
+        alert("error")
+      }
+  } 
+  catch (error) {
+      container.innerHTML = "<H1>"+error.message+"error</h1>"
+  }
+}
+load();
 
 function agregar() {
   console.log('Funcion Agregar');
   let producto = document.querySelector('#producto').value;
   let precio = parseInt(document.querySelector('#precio').value);
+  let descripcion=""
 
   let renglon = {
     "producto": producto,
     "precio": precio,
+    "descripcion":descripcion,
   };
   compras.push(renglon);
 
@@ -34,11 +57,12 @@ function sumar() {
 
 function mostrarTablaCompras() {
   let html = '';
-  for (let r of compras) {
+  for (let i=0;i<compras.length;i++) {
     html += `
             <tr>
-                <td>${r.producto}</td>
-                <td>${r.precio}</td>
+                <td>Producto: ${compras[i].producto} </td>
+                <td>Precio: $${compras[i].precio} </td>
+                <td>Descripcion: ${compras[i].descripcion} </td>
             </tr>
         `;
   }
