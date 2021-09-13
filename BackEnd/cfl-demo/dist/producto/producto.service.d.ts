@@ -1,3 +1,8 @@
+import Producto from './Producto';
 export declare class ProductoService {
-    getProductos(): any;
+    private listaProductos;
+    constructor();
+    getProductos(): Producto[];
+    getProducto(id: number): Producto;
+    private loadProductos;
 }
