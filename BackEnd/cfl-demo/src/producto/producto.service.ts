@@ -40,6 +40,23 @@ export class ProductoService {
             this.listaProductos.push(producto);
         }
     }
+
+    public create(prod: any) {
+        const producto = new Producto(prod["idProducto"],prod["nombreProducto"],
+        prod["precio"]);
+        console.log(producto);
+        if (producto.getId() && producto.getNombre() && producto.getPrecio()) {
+        this.listaProductos.push(prod);
+        console.log(producto);
+        fs.appendFileSync('productos.csv',
+        "\n"+ producto.getId() + "," +
+        producto.getNombre() + ","
+        + producto.getPrecio());
+        return "ok";
+        }
+        else
+        return "parametros incorrectos";
+    }
 }
 
 
