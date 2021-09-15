@@ -28,17 +28,17 @@ load();
 
 function agregar() {
   console.log('Funcion Agregar');
+  let id = document.querySelector("#id").value
   let producto = document.querySelector('#producto').value;
   let precio = parseInt(document.querySelector('#precio').value);
-  let descripcion=""
 
   let renglon = {
-    "producto": producto,
+    "idProducto": id,
+    "nombreProducto": producto,
     "precio": precio,
-    "descripcion":descripcion,
   };
   compras.push(renglon);
-
+  crear(renglon)
   mostrarTablaCompras();
 }
 
@@ -60,11 +60,22 @@ function mostrarTablaCompras() {
   for (let i=0;i<compras.length;i++) {
     html += `
             <tr>
-                <td>Producto: ${compras[i].producto} </td>
+                <td>Id: ${compras[i].idProducto} </td>
+                <td>Producto: ${compras[i].nombreProducto} </td>
                 <td>Precio: $${compras[i].precio} </td>
-                <td>Descripcion: ${compras[i].descripcion} </td>
             </tr>
         `;
   }
   document.querySelector('#tblCompras').innerHTML = html;
+}
+async function crear(producto){
+  let response = await fetch("/producto",{
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      body: JSON.stringify(producto)
+    }
+  });
+  let r = await response.json();
+  console.log(r)
 }

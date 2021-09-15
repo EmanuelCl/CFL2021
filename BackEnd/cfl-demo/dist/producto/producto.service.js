@@ -41,6 +41,20 @@ let ProductoService = class ProductoService {
             this.listaProductos.push(producto);
         }
     }
+    create(prod) {
+        const producto = new Producto_1.default(prod["idProducto"], prod["nombreProducto"], prod["precio"]);
+        console.log(producto);
+        if (producto.getId() && producto.getNombre() && producto.getPrecio()) {
+            this.listaProductos.push(prod);
+            console.log(producto);
+            fs.appendFileSync('productos.csv', "\n" + producto.getId() + "," +
+                producto.getNombre() + ","
+                + producto.getPrecio());
+            return "ok";
+        }
+        else
+            return "parametros incorrectos";
+    }
 };
 ProductoService = __decorate([
     (0, common_1.Injectable)(),

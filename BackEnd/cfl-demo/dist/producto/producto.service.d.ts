@@ -5,4 +5,5 @@ export declare class ProductoService {
     getProductos(): Producto[];
     getProducto(id: number): Producto;
     private loadProductos;
+    create(prod: any): "ok" | "parametros incorrectos";
 }

@@ -5,4 +5,5 @@ export declare class ProductoController {
     constructor(productoService: ProductoService);
     getProductos(): Producto[];
     getProducto(id: any): Producto;
+    create(prod: any): string;
 }
