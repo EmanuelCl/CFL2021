@@ -5,47 +5,60 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProductoService = void 0;
 const common_1 = require("@nestjs/common");
+const Producto_1 = require("./Producto");
+const fs = require("fs");
 let ProductoService = class ProductoService {
+    constructor() {
+        this.listaProductos = [];
+        this.loadProductos();
+    }
     getProductos() {
-        let productos = [];
-        let producto = [
-            {
-                "producto": "Azucar",
-                "precio": 150,
-                "descripcion": "azucar chango 1kg refinada",
-            },
-            {
-                "producto": "Pan",
-                "precio": 120,
-                "descripcion": "pan integral 1kg con semillas",
-            },
-            {
-                "producto": "Yerba",
-                "precio": 250,
-                "descripcion": "Yerba Andresito 2kg"
-            },
-            {
-                "producto": "Harina",
-                "precio": 165,
-                "descripcion": "Harina leudante 1kg",
-            },
-            {
-                "producto": "Galletitas",
-                "precio": 165,
-                "descripcion": "Galletitas don satur",
-            },
-        ];
-        for (let i = 0; i < producto.length; i++) {
-            productos.push(producto[i]);
+        return this.listaProductos;
+    }
+    getProducto(id) {
+        let producto = null;
+        for (let i = 0; i < this.listaProductos.length; i++) {
+            if (this.listaProductos[i].getId() == id) {
+                producto = this.listaProductos[i];
+            }
         }
-        return productos;
+        return producto;
+    }
+    loadProductos() {
+        let archivo = fs.readFileSync('productos.csv', 'utf8');
+        const elementos = archivo
+            .split('\n')
+            .map(p => p.replace('\r', ''))
+            .map(p => p.split(','));
+        for (let i = 0; i < elementos.length; i++) {
+            let producto = new Producto_1.default(parseInt(elementos[i][0]), elementos[i][1], parseFloat(elementos[i][2]));
+            this.listaProductos.push(producto);
+        }
+    }
+    create(prod) {
+        const producto = new Producto_1.default(prod["idProducto"], prod["nombreProducto"], prod["precio"]);
+        console.log(producto);
+        if (producto.getId() && producto.getNombre() && producto.getPrecio()) {
+            this.listaProductos.push(prod);
+            console.log(producto);
+            fs.appendFileSync('productos.csv', "\n" + producto.getId() + "," +
+                producto.getNombre() + ","
+                + producto.getPrecio());
+            return "ok";
+        }
+        else
+            return "parametros incorrectos";
     }
 };
 ProductoService = __decorate([
-    (0, common_1.Injectable)()
+    (0, common_1.Injectable)(),
+    __metadata("design:paramtypes", [])
 ], ProductoService);
 exports.ProductoService = ProductoService;
 //# sourceMappingURL=producto.service.js.map

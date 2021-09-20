@@ -11,7 +11,7 @@ table{
     font-size: 30px;
 }
 #parrafo{
-    margin-left: 30%;
+    margin-left: 6%;
     display: inline;
     font-size: 40px;
 }
@@ -20,8 +20,18 @@ table{
     display: inline;
     font-size: 40px;
 }
-#producto{
+#parrafoTres{
+    margin-left: 40%;
+    display: inline;
+    font-size: 40px;
+}
+#id{
     margin-left: 30%;
+    display: inline;
+    font-size: 20px;
+}
+#producto{
+    margin-left: 1%;
     display: inline;
     font-size: 20px;
 }
