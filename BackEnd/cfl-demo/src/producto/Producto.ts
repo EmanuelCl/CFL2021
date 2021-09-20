@@ -3,9 +3,9 @@ export default class Producto{
     private nombreProducto: string;
     private precio: number;
 
-    public constructor(id:number, nombre:string, precio:number){
-        this.idProducto = id;
-        this.nombreProducto = nombre;
+    public constructor(idProducto:number, nombreProducto:string, precio:number){
+        this.idProducto = idProducto;
+        this.nombreProducto = nombreProducto;
         this.precio = precio;
     }
     public getId():number{

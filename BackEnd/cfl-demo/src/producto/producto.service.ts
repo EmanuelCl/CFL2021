@@ -19,11 +19,12 @@ export class ProductoService {
         for (let i=0; i<this.listaProductos.length; i++) {
             if (this.listaProductos[i].getId()==id) {
         
-                producto = this.listaProductos[i];
+                return this.listaProductos[i];
             }
         }
         return producto;
     }
+
 
     private loadProductos(): void {
         let archivo = fs.readFileSync('productos.csv', 'utf8');
@@ -52,10 +53,10 @@ export class ProductoService {
         "\n"+ producto.getId() + "," +
         producto.getNombre() + ","
         + producto.getPrecio());
-        return "ok";
+        return {status:"ok"};
         }
         else
-        return "parametros incorrectos";
+        return {status:"parametros incorrectos"};
     }
 }
 

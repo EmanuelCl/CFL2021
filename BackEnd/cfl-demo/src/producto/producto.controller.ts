@@ -12,12 +12,12 @@ export class ProductoController {
         return this.productoService.getProductos()
     }
 
-    @Get(':id')
-    public getProducto(@Param('id') id): Producto {
-        return this.productoService.getProducto(parseInt(id));
+     @Get(':id')
+     public getProducto(@Param('id') id): Producto {
+         return this.productoService.getProducto(parseInt(id));
     }
     @Post()
-    create(@Body() prod: any): string {
+    create(@Body() prod: any) {
     return this.productoService.create(prod);
 }
 }
