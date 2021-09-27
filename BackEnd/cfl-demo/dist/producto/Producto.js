@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 class Producto {
-    constructor(id, nombre, precio) {
-        this.idProducto = id;
-        this.nombreProducto = nombre;
+    constructor(idProducto, nombreProducto, precio) {
+        this.idProducto = idProducto;
+        this.nombreProducto = nombreProducto;
         this.precio = precio;
     }
     getId() {

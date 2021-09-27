@@ -29,6 +29,9 @@ let ProductoController = class ProductoController {
     create(prod) {
         return this.productoService.create(prod);
     }
+    updateProducto(prod, id) {
+        return this.productoService.updateProducto(parseInt(id), prod);
+    }
 };
 __decorate([
     (0, common_1.Get)(),
@@ -48,8 +51,16 @@ __decorate([
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", String)
+    __metadata("design:returntype", void 0)
 ], ProductoController.prototype, "create", null);
+__decorate([
+    (0, common_1.Put)(":id"),
+    __param(0, (0, common_1.Body)()),
+    __param(1, (0, common_1.Param)("id")),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object, Object]),
+    __metadata("design:returntype", Boolean)
+], ProductoController.prototype, "updateProducto", null);
 ProductoController = __decorate([
     (0, common_1.Controller)('producto'),
     __metadata("design:paramtypes", [producto_service_1.ProductoService])

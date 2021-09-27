@@ -4,6 +4,10 @@ export declare class ProductoService {
     constructor();
     getProductos(): Producto[];
     getProducto(id: number): Producto;
+    updateProducto(id: number, prod: any): boolean;
+    private writeProductos;
     private loadProductos;
-    create(prod: any): "ok" | "parametros incorrectos";
+    create(prod: any): {
+        status: string;
+    };
 }
