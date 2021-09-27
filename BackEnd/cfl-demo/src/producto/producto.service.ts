@@ -25,6 +25,27 @@ export class ProductoService {
         return producto;
     }
 
+    public updateProducto(id:number, prod:any): boolean{
+        let position = this.listaProductos.findIndex(p => p.getId()===id);
+        if(position > -1){
+            const producto = new Producto(prod.id, prod.nombre, prod.precio);
+            this.listaProductos[position] = producto
+            this.writeProductos();
+            return true;
+        }
+        return false;
+    }
+
+    private writeProductos(){
+        let data = "";
+        for(let i = 0;i<this.listaProductos.length; i++) {
+            let producto: Producto = this.listaProductos[i];
+            if(producto.getId()) {
+                data += `\r\n${producto.getId()},${producto.getNombre},${producto.getPrecio()}`
+            }
+        }
+        fs.writeFileSync("productos.csv", data.substr(2));
+    }
 
     private loadProductos(): void {
         let archivo = fs.readFileSync('productos.csv', 'utf8');
@@ -41,6 +62,7 @@ export class ProductoService {
             this.listaProductos.push(producto);
         }
     }
+
 
     public create(prod: any) {
         const producto = new Producto(prod["idProducto"],prod["nombreProducto"],

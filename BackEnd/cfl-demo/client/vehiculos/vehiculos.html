@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/vehiculos.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Concesionario de Autos y Camionetas</h1>
+    <p class="tipo">Tipo de Vehiculo</p>
+    <p class="marca">Marca</p>
+    <p class="patente">Patente</p>
+    <p class="modelo">Modelo</p>
+    <p class="año">Año</p>
+    <p class="precio">Precio</p>
+    <p class="capacidad">Capacidad Carga/Baul</p></div>
+    <br>
+    
+    <input type="text" id="tipo">
+    <input type="text" id="marca">
+    <input type="text" id="patente">
+    <input type="text" id="modelo">
+    
+    <input type="number" id="año">
+    
+    <input type="number" id="precio">
+    
+    <input type="text" id="capacidad">
+    <button id="agregarAuto">Agregar Auto</button>
+    <button id="agregarCamioneta">Agregar Camioneta</button>
+    <button id="mostrarAuto">Ver Autos</button>
+    <button id="mostrarCamionetas">Ver Camionetas</button>
+    <button id="buscar">Buscar</button>
+
+    <table>
+        <thead>
+            <td></td>
+            <td></td>
+        </thead>
+        <tbody id="tblVehiculos"></tbody>
+    </table>
+
+    <div id="app"></div>
+    <div id="container"></div>
+
+    <script src="vehiculos.js"></script>
+
+</body>
+</html>

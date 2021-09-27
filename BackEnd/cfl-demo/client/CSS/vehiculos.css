@@ -1,0 +1,74 @@
+.tipo{
+    font-size: 18px;
+    display: inline;
+}
+.marca{
+    margin-left: 82px;
+    font-size: 18px;
+    display: inline;
+}
+.patente{
+    margin-left: 160px;
+    font-size: 18px;
+    display: inline;
+}
+.modelo{
+    margin-left: 150px;
+    font-size: 18px;
+    display: inline;
+}
+.año{
+    margin-left: 150px;
+    font-size: 18px;
+    display: inline;
+}
+.precio{
+    margin-left: 170px;
+    font-size: 18px;
+    display: inline;
+}
+.capacidad{
+    margin-left: 150px;
+    font-size: 18px;
+    display: inline;
+}
+
+#agregar{
+    margin-top: 5px;
+    font-size: 17px;
+}
+
+#tipo{
+    display: inline;
+    font-size: 16px;
+}
+#marca{
+    display: inline;
+    font-size: 16px;
+}
+#patente{
+    display: inline;
+    font-size: 16px;
+}
+#modelo{
+    display: inline;
+    font-size: 16px;
+}
+#año{
+    display: inline;
+    font-size: 16px;
+}
+#precio{
+    display: inline;
+    font-size: 16px;
+}
+#capacidad{
+    display: inline;
+    font-size: 16px;
+}
+table{
+    font-size: 26px;
+}
+h1{
+    font-size: 40px;
+}

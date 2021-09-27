@@ -5,5 +5,8 @@ export declare class ProductoController {
     constructor(productoService: ProductoService);
     getProductos(): Producto[];
     getProducto(id: any): Producto;
-    create(prod: any): string;
+    create(prod: any): {
+        status: string;
+    };
+    updateProducto(prod: any, id: any): boolean;
 }

@@ -18,6 +18,8 @@ const cliente_controller_1 = require("./cliente/cliente.controller");
 const cliente_service_1 = require("./cliente/cliente.service");
 const calcular_controller_1 = require("./calcular/calcular.controller");
 const calcular_service_1 = require("./calcular/calcular.service");
+const vehiculos_controller_1 = require("./vehiculos/vehiculos.controller");
+const vehiculos_service_1 = require("./vehiculos/vehiculos.service");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -27,8 +29,8 @@ AppModule = __decorate([
                 rootPath: (0, path_1.join)(__dirname, '..', 'client'),
             }),
         ],
-        controllers: [app_controller_1.AppController, producto_controller_1.ProductoController, cliente_controller_1.ClienteController, calcular_controller_1.CalcularController],
-        providers: [app_service_1.AppService, producto_service_1.ProductoService, cliente_service_1.ClienteService, calcular_service_1.CalcularService],
+        controllers: [app_controller_1.AppController, producto_controller_1.ProductoController, cliente_controller_1.ClienteController, calcular_controller_1.CalcularController, vehiculos_controller_1.VehiculosController],
+        providers: [app_service_1.AppService, producto_service_1.ProductoService, cliente_service_1.ClienteService, calcular_service_1.CalcularService, vehiculos_service_1.VehiculosService],
     })
 ], AppModule);
 exports.AppModule = AppModule;

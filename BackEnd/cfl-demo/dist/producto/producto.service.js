@@ -25,10 +25,30 @@ let ProductoService = class ProductoService {
         let producto = null;
         for (let i = 0; i < this.listaProductos.length; i++) {
             if (this.listaProductos[i].getId() == id) {
-                producto = this.listaProductos[i];
+                return this.listaProductos[i];
             }
         }
         return producto;
+    }
+    updateProducto(id, prod) {
+        let position = this.listaProductos.findIndex(p => p.getId() === id);
+        if (position > -1) {
+            const producto = new Producto_1.default(prod.id, prod.nombre, prod.precio);
+            this.listaProductos[position] = producto;
+            this.writeProductos();
+            return true;
+        }
+        return false;
+    }
+    writeProductos() {
+        let data = "";
+        for (let i = 0; i < this.listaProductos.length; i++) {
+            let producto = this.listaProductos[i];
+            if (producto.getId()) {
+                data += `\r\n${producto.getId()},${producto.getNombre},${producto.getPrecio()}`;
+            }
+        }
+        fs.writeFileSync("productos.csv", data.substr(2));
     }
     loadProductos() {
         let archivo = fs.readFileSync('productos.csv', 'utf8');
@@ -50,10 +70,10 @@ let ProductoService = class ProductoService {
             fs.appendFileSync('productos.csv', "\n" + producto.getId() + "," +
                 producto.getNombre() + ","
                 + producto.getPrecio());
-            return "ok";
+            return { status: "ok" };
         }
         else
-            return "parametros incorrectos";
+            return { status: "parametros incorrectos" };
     }
 };
 ProductoService = __decorate([
