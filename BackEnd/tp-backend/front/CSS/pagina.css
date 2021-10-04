@@ -1,0 +1,14 @@
+#gestor{
+    font-size: 20px;
+    margin-right: 10px;
+}
+#container{
+    display: flex;
+}
+#elementos{
+    margin-left: 30px;
+}
+#interfaz{
+    background-color:bisque;
+    border-radius: 10px;
+}
