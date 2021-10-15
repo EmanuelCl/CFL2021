@@ -44,6 +44,7 @@ export class UsuarioService {
     public delUsuario(id:number){
         let posicion = this.usuarios.findIndex(usuarios => usuarios.getId()==id);
         this.usuarios.splice(posicion,1);
+        this.paginaService.delUsuarioPublicacion(id)
         this.guardarDatos();
     }
     private cargarDatos(){

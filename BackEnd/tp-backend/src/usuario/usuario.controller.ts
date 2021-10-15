@@ -15,7 +15,7 @@ export class UsuarioController {
     public getUsuario(@Param("id") id:string):Usuario{
         return this.usuarioService.getUsuario(parseInt(id));
     }
-    @Get(":id/:pagina")
+    @Get(":id/pagina")
     public getUsuarioPost(@Param("id") id:string){
         return this.usuarioService.getUsuarioPublicacion(parseInt(id));
     }
@@ -31,4 +31,5 @@ export class UsuarioController {
     public delUsuario(@Param("id") id: string) {
         return this.usuarioService.delUsuario(parseInt(id));
     }
+    //borrar en cascada las publicaciones 
 }

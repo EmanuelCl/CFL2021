@@ -50,6 +50,14 @@ export class PaginaService {
         this.publicaciones.splice(posicion,1);
         this.guardarDatos();
     }
+    public delUsuarioPublicacion(id:number):any{
+        for (let i = 0; i < this.publicaciones.length; i++) {
+            if(this.publicaciones[i].getUserId()==id){
+                this.publicaciones.splice(i-1,1);
+                this.guardarDatos();
+            } 
+        }   
+    }
     public cargarDatos() {
         let archivo = fs.readFileSync('publicaciones.csv', 'utf8');
         const elementos = archivo

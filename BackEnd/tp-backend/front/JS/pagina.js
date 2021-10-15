@@ -97,7 +97,7 @@ function mostrarUsuario(){
 function mostrarPublicacion(){
     let datos = "<ul>";
     for(let i = 0; i <publicaciones.length; i++){
-        datos += `<li>${publicaciones[i].userId} ${publicaciones[i].id} ${publicaciones[i].title} ${publicaciones[i].body}</li>`
+        datos += `<li>${publicaciones[i].userId} <a href='/postDetail.html?index=${publicaciones[i].idPost}'>${publicaciones[i].idPost}</a> ${publicaciones[i].title} ${publicaciones[i].body}</li>`
     }
     datos += `</ul>`;
     container.innerHTML = datos;
@@ -154,8 +154,6 @@ botonBorrar.addEventListener("click", async () => {
             headers: {"Content-Type" : "application/json" }
         });
         if(response.ok) {
-            usuarios = await response.json();
-            console.log(usuarios)
             loadUsuario();
         }else{
             contenido.innerHTML="Error en lectura del servidor";
